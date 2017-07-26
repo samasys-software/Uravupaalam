@@ -1,0 +1,4 @@
+com\primeforce\prodcast\SuperAdminRest.class
+com\primeforce\prodcast\dto\StoreTypeDTO.class
+com\primeforce\prodcast\businessobjects\StoreType.class
+com\primeforce\prodcast\dao\StoreTypeMapper.class
