@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>உறவுப்பாலம் - கணக்கெடுப்பு பதிவு</title> <!-- Edited title to have a better understanding -->
+<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+<link rel="icon" href="images/goat_favicon.png" type="image/png" sizes="16x16"><!-- Changed favicon to suit the rest of the site -->
+
+<!-- Tell the browser to be responsive to screen width -->
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+<!-- Bootstrap 3.3.5 -->
+<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+<link href="http://code.jquery.com/ui/1.9.2/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/jquery.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/newstyle.css">
+
+<style>
+
+ #saveDialog
+ {
+   background-color:white;
+   float:left;
+ }
+ 
+ #dialog
+ {
+   background-color:white;
+   float:left;
+   position: ['center'];
+ }
+ 
+</style>
+
+</head>
+<body style="overflow-y:scroll;" >
+<div class="page">
+
+<!-- Registration page -->
+	 
+	<div style="min-height: 657px;"  class="ui-page ui-body-c" tabindex="0" data-url="three" data-role="page" id="register" data-theme="a">
+	<div style="background-color:white;min-height: 180px;">
+	<!-- Header Banner -->
+			  <img src="images/goat_tml-1-e1484570611608.png" class="im1" style="width:190px; height:150px; margin-left:50px; float:left; margin-top:20px; padding-bottom:5px;"/>
+			  <a href="http://aadhangam.com"><img src="images/capture17.png" style="padding-left:15%; padding-top:50px; vertical-align:top;" class="im2"/></a>
+			  <img src="images/cropped-hand-shake-final-1.png" style="width:190px; height:150px; margin-right:50px; float:right; margin-top:20px;"class="im3"/>
+	</div>
+            <header class="col-sm-12 top-head">
+              <div class="col-md-2 col-sm-3 col-xs-4 logo">
+			  <!-- Removed previous logo -->
+			  </div>
+			  
+			  
+		    </header>
+	
+        <div class="col-sm-12 title-bar" style="background-color:black;height:70px; padding-top:20px;">
+		
+          <div class="col-sm-6 col-xs-5 title" name="label" caption="Registration" ><a href="http://www.uravuppaalam.com" ><i class="fa fa-users"; aria-hidden="true" ></i><span id="Reg" class="home" style="color: white"> REGISTRATION</span></a></div>
+		  <div class="col-sm-6 col-xs-7 breadcrumb text-right" ><a name="label" caption="Login" class="login" style="color:white; font-size:16px; text-transform:uppercase;"id="logoff" href="#login">LOGIN</a></div>
+		  <div class="col-sm-6 col-xs-7 breadcrumb-left" ><a style="color:white; font-size:14px;" name="label" caption="MAIN MENU" class="matrimonial" href="#home">MAIN MENU</a></div>
+		  
+	   </div>
+	   <br>
+		<br>
+	<div class="col-sm-12 content-sec" >
+		<div style="width:100;" id="RegisterNavigation" title="Uravupaalam Notification" >
+			<div class="costomer-tab-section" >
+               <div class="tab-content" style="background-color:#ffffcc;">
+                  <div id="RegisterTab" class="tab-pane fade in active" >
+						
+                        <form>
+						
+                            <div class="row" >
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Name">Name</span>
+										  <input type="text" class="allowalphabetsonly" id="name" >
+									</div>
+								   <div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Gender">Gender</span>
+											<select id="gender" style="text-indent:10px;background-color:white;">
+													<option style="display: none;">&nbsp;</option>
+													<option value="0" name="label" caption="Male">MALE</option>
+													<option value="1" name="label" caption="Female">FEMALE</option>
+											</select>
+								   </div>
+								   <div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Date of Birth">Date of Birth</span>
+										  <input type="text" data-role="date" id="dob" data-theme="a">
+								   </div>
+								   <div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Father Name">Father's Name</span>
+										  <input type="text" id="fatherName" >
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Mother Name">Mother's Name</span>
+										  <input type="text" id="motherName" >
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Race">Race</span>
+										  <input type="text" id="race" >
+								    </div>
+							</div> 
+							
+							<div class="row">
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Education">Education</span>
+										  <select id="education" style="text-indent:10px;background-color:white;">
+													<option style="display: none;">&nbsp;</option>
+													<option value="NO SCHOOL">NO SCHOOL</option>
+													<option value="UPTO 5TH STANDARD">UPTO 5TH STANDARD</option>
+													<option value="UPTO 9TH STANDARD">UPTO 9TH STANDARD</option>
+													<option value="10TH PASS">10TH PASS</option>
+													<option value="12TH PASS">12TH PASS</option>
+													<option value="ITI">ITI</option>
+													<option value="DIPLOMA">DIPLOMA</option>
+													<option value="3 YEAR DEGREE">3 YEAR DEGREE</option>
+													<option value="B.E/B.TECH">B.E/B.TECH</option>
+													<option value="MBBS">MBBS</option>
+													<option value="MBA">MBA</option>
+													<option value="POST GRADUATE">POST GRADUATE</option>
+											</select>
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Occupation">Occupation</span>
+										  <input type="text" id="occupation" >
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Country">Country</span>
+											<select id="country" style="text-indent:10px;background-color:white;">
+											</select>
+									</div>
+							</div> 
+							
+							<div class="row">
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="State">State</span>
+										  <select id="state" style="text-indent:10px;background-color:white;">
+											</select>
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="District">District</span>
+										  <select id="district" style="text-indent:10px;background-color:white;">
+													<option value="">&nbsp;</option>
+											</select>
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Taluk">Taluk</span>
+										  <select id="taluk" style="text-indent:10px;background-color:white;">
+													<option value="">&nbsp;</option>
+											</select>
+								    </div>
+							</div>
+							
+							<div class="row">
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Town">Town</span>
+										  <input type="text" id="town" >
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Street">Street</span>
+										  <input type="text" id="street" >
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Door Number">Door Number</span>
+										  <input type="text" id="doorNumber" >
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Pin Code">Pin Code</span>
+										  <input type="numeric" id="pinCode" class="allownumericwithoutdecimal" maxlength="6">
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="KulaTheivam">KulaTheivam</span>
+										  <input type="text" id="kulatheivam">
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Kulatheivam Location">Kulatheivam Location</span>
+										  <input type="text" id="kulatheivamLocation">
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Mobile Number">Mobile Number</span>
+										  <input type="number" id="mobileNumber" class="allownumericwithoutdecimal" min="0">
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Email">Email</span>
+										  <input type="text" style="text-transform: lowercase;" id="email" >
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Aadhar">Aadhar</span>
+										  <input type="number" id="aadhar" class="allownumericwithoutdecimal" maxlength="12">
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Blood Group">Blood Group</span>
+											<select id="bloodGroup" style="text-indent:10px;background-color:white;">
+													<option style="display: none;">&nbsp;</option>
+													<option value="0">O+</option>
+													<option value="1">O-</option>
+													<option value="2">A+</option>
+													<option value="3">A-</option>
+													<option value="4">B+</option>
+													<option value="5">B-</option>
+													<option value="6">AB+</option>
+													<option value="7">AB-</option>
+											</select>
+									</div>
+							</div>
+							
+				     </form>		 
+						
+						<div class="row" >
+								<div class="col-sm-6 col-xs-8">
+									  <p id="fillMessage" name="label" caption="Please enter values for mandatory fields" style="color:red;">&nbsp;&nbsp;&nbsp;Please enter values for mandatory fields.</p>
+								</div>
+						</div>
+							
+						<div class="row">
+							<div class="col-sm-4 col-xs-6">
+								<br> <a name="label" caption="Register" class="green-btn-style" id="registerButton" style="background-color:#006400;"> Register </a>
+							</div>
+							<div class="col-sm-4 col-xs-6">
+								<br> <a name="label" caption="Reset" class="green-btn-style" id="registerResetButton"  style="background-color:#006400;"> Reset </a>
+							</div>
+							<div class="col-sm-4 col-xs-6" >
+									<input type="button" id="radioEnglish" name="radio-language" value="en"/><label class="language" for="radioEnglish"> View in English </label>
+									<input type="button" id="radioTamil" name="radio-language" value="ta"/><label class="language" style="margin-left:10px;"for="radioTamil"> தமிழில் பார்வையிட </label>
+							</div>
+						</div> 
+              </div>
+            </div>
+		  </div>
+		</div>
+
+      </div>
+      </div>
+	
+<!-- Registration Page End-->
+
+<!-- Dashboard -->
+
+  <div style="min-height: 800px;background-color:#ffffcc;" class="ui-page ui-body-a" tabindex="0" data-url="two" data-role="page" id="home" data-theme="a">
+  <header class="col-sm-12 top-head">
+			
+		<div style="background-color:white;min-height: 180px;">
+	<!-- Header Banner -->
+			  <img src="images/goat_tml-1-e1484570611608.png" class="im1" style="width:190px; height:150px; margin-left:50px; float:left; margin-top:20px; padding-bottom:5px;"/>
+			  <a href="http://aadhangam.com"><img src="images/capture17.png" style="padding-left:15%; padding-top:50px; vertical-align:top;" class="im2"/></a>
+			  <img src="images/cropped-hand-shake-final-1.png" style="width:190px; height:150px; margin-right:50px; float:right; margin-top:20px;"class="im3"/>
+	  </div>
+	</header>	  
+
+        <div class="col-sm-12 title-bar" style="background-color:black; height:70px; padding-top:20px">
+          <div class="col-sm-6 col-xs-5 title"><i class="fa fa-home" aria-hidden="true"></i> DASHBOARD</div>
+          <div class="col-sm-6 col-xs-7 breadcrumb text-right"> <a rel="external" style="color:white; font-size:14px;" class="logout">LOGOUT</a>
+          </div>
+        </div>
+		
+        <div class="col-sm-12 content-sec" style="background-color:#ffffcc;">
+          <ul class="entry-menu" style="background-color:#ffffcc;">
+		  <br>
+		    <li>
+			<a href="#matrimony">
+              <div class="icon-box"><img src="images/Register.png" alt="" class="hvr-bounce-in"></div>
+              <label>MATRIMONIAL REGISTRATION </label>
+              </a></li>
+			<li><a href="#viewEdit">
+              <div class="icon-box"><img src="images/Edit.png" alt="" class="hvr-bounce-in"> </div>
+              <label>MANAGE PROFILES</label>
+              </a></li>
+			<li class="atleastOne"><a href="#searchMatrimonial">
+              <div class="icon-box"><img src="images/Search.png" alt="" class="hvr-bounce-in"></div>
+              <label>SEARCH MATRIMONIAL</label>
+              </a></li>
+			<li class="noRecord"><a href="#report">
+              <div class="icon-box"><img src="images/report.png" alt="" class="hvr-bounce-in"></div>
+              <label>REPORT </label>
+              </a></li>
+			<li><a href="#likeProfiles">
+              <div class="icon-box"><img src="images/like.png" alt="" class="hvr-bounce-in"></div>
+              <label>Matrimonial Favourites </label>
+              </a></li>
+			<li><a href="#register">
+              <div class="icon-box"><img src="images/censesPerson.png" alt="" class="hvr-bounce-in"></div>
+              <label>EDIT CENSUS REGISTRATION </label>
+              </a></li>
+		 </ul>
+        </div>
+		
+  </div>
+  
+<!-- Dashboard END -->
+
+<!-- Matrimonial page -->
+	 
+	<div style="min-height: 657px;"  class="ui-page ui-body-a" tabindex="1" data-url="three" data-role="page" id="matrimony" data-theme="a">
+	 <div style="background-color:white;min-height: 180px;">
+	<!-- Header Banner -->
+			  <img src="images/goat_tml-1-e1484570611608.png" class="im1" style="width:190px; height:150px; margin-left:50px; float:left; margin-top:20px; padding-bottom:5px;"/>
+			  <a href="http://aadhangam.com"><img src="images/capture17.png" style="padding-left:15%; padding-top:50px; vertical-align:top;" class="im2"/></a>
+			  <img src="images/cropped-hand-shake-final-1.png" style="width:190px; height:150px; margin-right:50px; float:right; margin-top:20px;"class="im3"/>
+	</div>
+   <header class="col-sm-12 top-head">
+              <div class="col-md-2 col-sm-3 col-xs-4 logo">
+			  <!-- Removed previous logo -->
+			  </div>    
+	</header>	  
+	
+        <div class="col-sm-12 title-bar" style="background-color:black; height:70px; padding-top:20px;">
+		
+          <div class="col-sm-6 col-xs-5 title" name="label" caption="Matrimony Registration" ><a href="http://ec2-52-91-5-22.compute-1.amazonaws.com:8080/uravupaalam/" ><span class="reg" id="matReg" style="color: white"> MATRIMONIAL REGISTRATION </span></a></div>
+		  <div class="col-sm-6 col-xs-7 breadcrumb text-right" > <a name="label" caption="Logout" style="color:white; font-size:14px;" class="logout">LOGOUT</a></div>
+		  <div class="col-sm-6 col-xs-7 breadcrumb-left" ><a style="color:white; font-size:14px;" name="label" caption="MAIN MENU" class="matrimonial" href="#home">MAIN MENU</a></div>
+	   </div>
+	   <br>
+		<br>
+	<div class="col-sm-12 content-sec" >
+		<div style="width:100;" id="AstrologyNavigation" title="Uravupaalam Notification" >
+			<div class="costomer-tab-section" >
+               <div class="tab-content" style="background-color:#ffffcc;">
+                  <div id="AstrologyTab" class="tab-pane fade in active" >
+						
+                        <form>
+						
+                            <div class="row" >
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color " name="label" caption="Bride Groom / Bride Name">Bride / Bride Groom Name</span>
+										  <input class="allowalphabetsonly allowspace" type="text" id="aname" >
+									</div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color " name="label" caption="Gender">Gender</span>
+										  <select id="agender" style="text-indent:10px;background-color:white;">
+													<option style="display: none;">&nbsp;</option>
+													<option value="0" >MALE</option>
+													<option value="1" >FEMALE</option>
+										 </select>
+									</div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Race">Race</span>
+										  <input type="text" id="arace" >
+									</div>
+								   <div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Color">Color</span>
+										  <input type="text" id="acolor" >
+								   </div>
+								   <div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Height">Height (cm)</span>
+										  <input type="number" id="aheight" class="allownumberwithdecimal" min="0">  
+								   </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Monthly Income">Monthly Salary</span>
+										  <input type="text" id="amonthlysalary" >
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Education">Education</span>
+										  <input type="text" id="aeducation" >
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Occupation">Occupation</span>
+										  <input type="text" id="aoccupation" >
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Date of Birth">Date of Birth</span>
+										  <input type="text" data-role="date" id="adateofbirth" data-theme="a">
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Birth Time,Place">Birth Time,Place</span>
+										  <input type="text" id="abirthtimeplace" >
+									</div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Current Dhisai">Current Dhisai</span>
+										  <input type="text" id="acurrentdhisai">
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Year">Year</span>
+										  <input type="text" data-role="date" id="ayear" data-theme="a">
+								    </div>
+							</div> 
+							
+							<div class="row">
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Month">Month</span>
+										  <select id="amonth" style="text-indent:10px;background-color:white;">
+													<option style="display: none;">&nbsp;</option>
+													<option value="JANUARY" >JANUARY</option>
+													<option value="FEBRUARY" >FEBRUARY</option>
+													<option value="MARCH" >MARCH</option>
+													<option value="APRIL" >APRIL</option>
+													<option value="MAY" >MAY</option>
+													<option value="JUNE" >JUNE</option>
+													<option value="JULY" >JULY</option>
+													<option value="AUGUST" >AUGUST</option>
+													<option value="SEPTEMBER" >SEPTEMBER</option>
+													<option value="OCTOBER" >OCTOBER</option>
+													<option value="NOVEMBER" >NOVEMBER</option>
+													<option value="DECEMBER" >DECEMBER</option>
+										 </select>
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Day">Day</span>
+										  <input type="text" data-role="date" id="aday" data-theme="a">
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Star">Star</span>
+										  <select id="astar" style="text-indent:10px;background-color:white;">
+													<option style="display: none;">&nbsp;</option>
+													<option value="ASHWINI" name="label" caption="ASHWINI">ASHWINI</option>
+													<option value="BHARANI" name="label" caption="BHARANI">BHARANI  </option>
+													<option value="KRITIKA" name="label" caption="KRITIKA">KRITIKA</option>
+													<option value="ROHINI" name="label" caption="ROHINI">ROHINI</option>
+													<option value="MRIGASIRA" name="label" caption="MRIGASIRA">MRIGASIRA</option>
+													<option value="ARIDRA" name="label" caption="ARIDRA">ARIDRA</option>
+													<option value="PUNARVASU" name="label" caption="PUNARVASU">PUNARVASU</option>
+													<option value="PUSHYA" name="label" caption="PUSHYA">PUSHYA</option>
+													<option value="ASLESHA" name="label" caption="ASLESHA">ASLESHA</option>
+													<option value="MAGHA" name="label" caption="MAGHA">MAGHA</option>
+													<option value="POORVAPHALGUNI" name="label" caption="POORVAPHALGUNI">POORVAPHALGUNI</option>
+													<option value="UTTARAPHALGUNI" name="label" caption="UTTARAPHALGUNI">UTTARAPHALGUNI</option>
+													<option value="HASTA" name="label" caption="HASTA">HASTA</option>
+													<option value="CHITRA" name="label" caption="CHITRA">CHITRA</option>
+													<option value="SWATI" name="label" caption="SWATI">SWATI</option>
+													<option value="VISAKHA" name="label" caption="VISAKHA">VISAKHA</option>
+													<option value="ANURADHA" name="label" caption="ANURADHA">ANURADHA</option>
+													<option value="JYEHSTA" name="label" caption="JYEHSTA">JYEHSTA</option>
+													<option value="MOOLA" name="label" caption="MOOLA">MOOLA</option>
+													<option value="POORVASHADHA" name="label" caption="POORVASHADHA">POORVASHADHA</option>
+													<option value="UTTARASHADHA" name="label" caption="UTTARASHADHA">UTTARASHADHA</option>
+													<option value="SRAVANA" name="label" caption="SRAVANA">SRAVANA</option>
+													<option value="DHANSHITA" name="label" caption="DHANSHITA">DHANSHITA</option>
+													<option value="SATABISHA" name="label" caption="SATABISHA">SATABISHA</option>
+													<option value="POORVABHADRAPADA" name="label" caption="POORVABHADRAPADA">POORVABHADRAPADA</option>
+													<option value="UTTARABHADRAPADA" name="label" caption="UTTARABHADRAPADA">UTTARABHADRAPADA</option>
+													<option value="REVATI" name="label" caption="REVATI">REVATI</option>
+										 </select>
+								    </div>
+							</div>
+							
+							<div class="row">
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Padam">Padam</span>
+										  <select id="apadam" style="text-indent:10px;background-color:white;">
+													<option style="display: none;">&nbsp;</option>
+													<option value="1" >1</option>
+													<option value="2" >2</option>
+													<option value="3" >3</option>
+													<option value="4" >4</option>
+										 </select>
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Father Name">Father's Name</span>
+										  <input type="text" id="afathername" >
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Occupation">Occupation</span>
+										  <input type="text" id="afoccupation">
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Ethnicity">Ethnicity</span>
+										  <input type="text" id="afethnicity">
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Mother Name">Mother's Name</span>
+										  <input type="text" id="amothername" >
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Occupation">Occupation</span>
+										  <input type="text" id="amoccupation">
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Ethnicity">Ethnicity</span>
+										  <input type="text" id="amethnicity">
+								    </div>
+
+									
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Asset Detail">Asset Details</span>
+										  <input type="text" id="aassetdetails">
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Siblings">Siblings</span>
+										  <input type="text" id="asiblings">
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Married Person">Married Person</span>
+										  <input type="text" id="amarriedperson">
+								    </div>
+
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="First Marriage">First Marriage</span>
+											<select id="afirstmarriage" style="text-indent:10px;background-color:white;">
+													<option style="display: none;">&nbsp;</option>
+													<option value="YES" name="label" caption="Yes">YES</option>
+													<option value="NO" name="label" caption="No">NO</option>
+											</select>
+									</div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="First Marriage Details">First Marriage Details</span>
+										  <input type="text" id="fmdetails">
+									</div>
+							</div>
+							
+							<div class="row">
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Differently Abled">Differently Abled</span>
+											<select id="adifferentlyabled" style="text-indent:10px;background-color:white;">
+													<option style="display: none;">&nbsp;</option>
+													<option value="YES" name="label" caption="Has">YES</option>
+													<option value="NO" name="label" caption="No">NO</option>
+											</select>
+									</div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Differently Abled Details">Differently Abled Details</span>
+										  <input type="text" id="adadetails">
+									</div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Address">Address</span>
+										  <input type="text" id="aaddress">
+									</div>
+							</div>
+							
+							<div class="row">
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="City">City</span>
+										  <input type="text" id="acity">
+									</div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Country">Country</span>
+										  <input type="text" id="acountry">
+									</div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Phone Number">Phone Number</span>
+										  <input type="number" id="amobileNumber" class="allownumericwithoutdecimal" min="0">
+									</div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Proposal Expectation">Proposal Expectation</span>
+										  <input type="text" id="aproposalexpectation">
+									</div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Profile Picture">Profile Picture </span>
+										  <input type="file" name="pic" accept="image/*" id="aprofilepicture" class="borderfile" style="border:none">
+									</div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Additional Picture">Additional Picture</span>
+										  <input type="file" name="pic" accept="image/*" id="aadditionalpicture" class="borderfile"  style="border:none">
+									</div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Astro Chart">Astro Chart</span>
+										  <input type="file" name="pic" accept="image/*" id="aastrochart" class="borderfile"  style="border:none">
+									</div>
+									
+									<div class="col-sm-4 col-xs-6 existing" >
+										<span class="color" name="label" caption="View Existing" >View Existing</span><br>
+										<br><a class="exist" id="viewExist"> Images </a>
+									</div>
+									
+									<div class="col-sm-4 col-xs-6" >
+										<input type="button" id="radioEnglish" name="radio-language" value="en"/><label class="language" for="radioEnglish"><font color="blue"> View in English </font></label>
+										<input type="button" id="radioTamil" name="radio-language" value="ta"/><label class="language" style="margin-left:10px;"for="radioTamil"> <font color="blue">தமிழில் பார்வையிட </font></label><br><br>
+									</div>
+							</div>
+							
+				     </form>		 
+						
+						<div class="row" >
+									  <p id="fillMessage2" name="label" caption="Please enter values for mandatory fields" style="color:red;">&nbsp;&nbsp;&nbsp;Please enter values for mandatory fields.</p>
+						</div>
+							
+						<div class="row">
+							<div class="col-sm-4 col-xs-6">
+								<br> <a name="label" caption="Register" class="green-btn-style" id="submitButton" style="background-color:#006400;"> Register </a>
+							</div>
+							<div class="col-sm-4 col-xs-6" >
+								<br><a class="green-btn-style" name="label" caption="Cancel" id="closeButton" > Cancel </a>
+							</div>
+						</div>
+              </div>
+            </div>
+		  </div>
+		</div>
+	</div>
+
+     </div>
+	
+<!-- Matrimonial Page End-->
+  
+<!-- Login Page Start -->
+
+	<div class="ui-page ui-body-a" tabindex="" data-url="two" data-role="page" id="login">
+    <section class="login-sec">
+	<div style="background-color:white;min-height: 180px;">
+	<!-- Header Banner -->
+			  <img src="images/goat_tml-1-e1484570611608.png" class="im1" style="width:190px; height:150px; margin-left:50px; float:left; margin-top:20px; padding-bottom:5px;"/>
+			  <a href="http://aadhangam.com"><img src="images/capture17.png" style="padding-left:15%; padding-top:50px; vertical-align:top;" class="im2"/></a>
+			  <img src="images/cropped-hand-shake-final-1.png" style="width:190px; height:150px; margin-right:50px; float:right; margin-top:20px;"class="im3"/>
+	  </div>
+      <div class="login-form-area" style="background-color:#ffffcc;">
+        <div class="login-form">
+          <div class="login-form-box">
+            <form>
+              <ul>
+			  <li>
+			  <div class="select-box" > <span class="input-icon"><i class="fa fa-globe" aria-hidden="true"></i></span>
+                    	<select id="LoginCountry" style="text-transform:uppercase;" >
+						</select>
+				  </div>  
+                </li>
+                <li>
+				
+                  <div class="input-box ui-content ui-body-a" > <span class="input-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    <input type="number" name="" value="" placeholder="Mobile Number" id="LoginUserId" maxlength="10" class="allownumericwithoutdecimal" min="0"/>
+                  </div>
+                  <div id="validationMessage" class="validation-msg">! Invalid Mobile Number or PIN</div>
+                </li>
+                <li>
+                  <div class="input-box" > <span class="input-icon"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
+                    <input type="number" name="" placeholder="PIN" id="LoginPassword" maxlength="4" class="allownumericwithoutdecimal" min="0"/>
+                  </div>
+                  <div id="validationMessage" class="validation-msg">! Invalid Mobile Number or PIN</div>
+                </li>
+				
+              </ul>
+              <div class="btn-sec">
+                <div class="col-half"> 
+                  <a  name="label" caption="Login" class="submit-btn" id="LoginButton">Log in</a>
+				  <div class="col-half reg-new"><a  name="label" caption="Register" href="#register">Register</a></div>
+                </div>
+					<div style="width:100%;display:none;" id="saveDialog" title="Uravupaalam Notification" >
+						<div class="costomer-tab-section">
+							<div class="tab-content-mini">
+								<form>
+									<div class="row">
+									<div class="col-sm-12">
+									<p id="notificationMessage" align="center" style="color:#abcd14"></p>
+									</div>
+									</div>
+									<div class="row">
+									<div class="col-sm-12" align="center"><a id="okMessage" name="label" caption="OK" class="green-btn-style">OK</a>
+									</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+                <div class="col-half-right "><a name="label" caption="Clear" class="submit-btn-right" id="clearButton">Clear</a></div>
+				<div class="col-half forgot-pswd"><a  name="label" style="font-size:14px;"caption="Forgot Pin" id="retrievePin">Forgot Pin?</a></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<!-- Login Page End -->
+  
+<!-- Report Start -->
+
+	<div style="min-height: 657px;"  class="ui-page ui-body-a" tabindex="1" data-url="four" data-role="page" id="report" data-theme="a">
+            <header class="col-sm-12 top-head">
+			
+		<div style="background-color:white;min-height: 180px;">
+	<!-- Header Banner -->
+			  <img src="images/goat_tml-1-e1484570611608.png" class="im1" style="width:190px; height:150px; margin-left:50px; float:left; margin-top:20px; padding-bottom:5px;"/>
+			  <a href="http://aadhangam.com"><img src="images/capture17.png" style="padding-left:15%; padding-top:50px; vertical-align:top;" class="im2"/></a>
+			  <img src="images/cropped-hand-shake-final-1.png" style="width:190px; height:150px; margin-right:50px; float:right; margin-top:20px;"class="im3"/>
+	  </div>
+		    </header>
+	
+        <div class="col-sm-12 title-bar" style="background-color:black;height:70px; padding-top:20px;">
+          <div class="col-sm-6 col-xs-5 title" name="label" caption="People Details" style="color:white; font-size:18px;"><i class="fa fa-users"; aria-hidden="true"></i>REPORT</div>
+		  <div class="col-sm-6 col-xs-7 breadcrumb text-right"> <a rel="external"  class="logout" style="color:white; font-size:14px;">LOGOUT</a></div>
+		  <div class="col-sm-6 col-xs-7 breadcrumb-left" ><a style="color:white; font-size:14px;" name="label" caption="MAIN MENU" class="matrimonial" href="#home">MAIN MENU</a></div>
+	   </div>
+	   <br>
+		<br>
+		<div class="col-sm-12 content-sec">
+			<div style="width:100%" id="peonav" title="Uravupaalam Notification" >
+				<div class="costomer-tab-section" >
+					<div class="tab-content" style="background-color:#ffffcc;">
+						<div id="usertab" class="tab-pane fade in active">
+						
+								<div class="row">
+									<div class="col-sm-4 col-xs-6" >
+									  <label class="lable-style">Search User</label>
+									  <input class="input-feild-style allowalphabetsonly" type="text" id="selectUser" style="background-color:white; text-transform: uppercase;">		  
+									</div>
+									<div class="col-sm-4 col-xs-6" >
+										<br>
+										<br>
+										<br>
+										<a class="green-btn-style" name="label" caption="Go" id="go"> Go </a>
+									</div>									
+								</div>
+
+										<br>
+										<a id="downloadUserList">Download All</a>
+										<br>
+										
+								<br>
+								<div class="userDivcl" id="userDiv" >
+									<div class="row">
+										<div class="col-sm-12">
+											<div class="head-table">User Details</div>
+											<div class="custom-table"><div class="tbl"></div></div>
+										</div>
+									</div>
+								</div>						
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+ 
+<!-- Report END -->
+
+<!-- Search -->
+
+  <div style="min-height: 657px;"  class="ui-page ui-body-a" tabindex="1" data-url="four" data-role="page" id="searchMatrimonial" data-theme="a">
+       <header class="col-sm-12 top-head">
+			
+		<div style="background-color:white;min-height: 180px;">
+	<!-- Header Banner -->
+			  <img src="images/goat_tml-1-e1484570611608.png" class="im1" style="width:190px; height:150px; margin-left:50px; float:left; margin-top:20px; padding-bottom:5px;"/>
+			  <a href="http://aadhangam.com"><img src="images/capture17.png" style="padding-left:15%; padding-top:50px; vertical-align:top;" class="im2"/></a>
+			  <img src="images/cropped-hand-shake-final-1.png" style="width:190px; height:150px; margin-right:50px; float:right; margin-top:20px;"class="im3"/>
+	  </div>
+		    </header>
+	
+        <div class="col-sm-12 title-bar" style="background-color:black;height:70px; padding-top:20px">
+          <div class="col-sm-6 col-xs-5 title" name="label" caption="SEARCH MATRIMONIAL" style="color:white; font-size:18px;"><i class="fa fa-users"; aria-hidden="true"></i>SEARCH MATRIMONIAL</div>
+		  <div class="col-sm-6 col-xs-7 breadcrumb text-right"> <a rel="external" name="label" caption="Logout" style="color:white; font-size:14px;" class="logout">LOGOUT</a>
+          </div>
+		  <div class="col-sm-6 col-xs-7 breadcrumb-left" ><a style="color:white; font-size:14px;" name="label" caption="MAIN MENU" class="matrimonial" href="#home">MAIN MENU</a></div>
+	   </div>
+		
+		<div class="col-sm-12 content-sec" style="background-color:#ffffcc;">
+			<div style="width:100%" id="sernav" title="Uravupaalam Notification">
+				<div class="costomer-tab-section">
+					<div class="tab-content" style="background-color:#ffffcc;">
+						
+							<form>
+								<div class="row">
+									<div class="col-sm-4 col-xs-6" >
+										<span class="color" name="label" caption="Gender">Gender</span>
+											<select id="sgender" style="text-indent:10px;background-color:white;">
+													<option style="display: none;">&nbsp;</option>
+													<option value="0" name="label" caption="Male">MALE</option>
+													<option value="1" name="label" caption="Female">FEMALE</option>
+											</select>
+									</div>
+									<div class="col-sm-4 col-xs-6" >
+									  <span class="color" name="label" caption="Age">Minimum Age</span>
+											<select id="smiage" style="text-indent:10px;background-color:white;">
+													<option style="display: none;">&nbsp;</option>
+													<option value="17" name="label" >17</option>
+													<option value="18" name="label" >18</option>
+													<option value="19" name="label" >19</option>
+													<option value="20" name="label" >20</option>
+													<option value="21" name="label" >21</option>
+													<option value="22" name="label" >22</option>
+													<option value="23" name="label" >23</option>
+													<option value="24" name="label" >24</option>
+													<option value="25" name="label" >25</option>
+													<option value="26" name="label" >26</option>
+													<option value="27" name="label" >27</option>
+													<option value="28" name="label" >28</option>
+													<option value="29" name="label" >29</option>
+													<option value="30" name="label" >30</option>
+													<option value="31" name="label" >31</option>
+													<option value="32" name="label" >32</option>
+													<option value="33" name="label" >33</option>
+													<option value="34" name="label" >34</option>
+													<option value="35" name="label" >35</option>
+													<option value="36" name="label" >36</option>
+													<option value="37" name="label" >37</option>
+													<option value="38" name="label" >38</option>
+													<option value="39" name="label" >39</option>
+													<option value="40" name="label" >40</option>
+											</select>
+									</div>
+									<div class="col-sm-4 col-xs-6" >
+									  <span class="color" name="label" caption="Age">Maximum Age</span>
+											<select id="smaage" style="text-indent:10px;background-color:white;">
+													<option style="display: none;">&nbsp;</option>
+													<option value="18" name="label" >18</option>
+													<option value="19" name="label" >19</option>
+													<option value="20" name="label" >20</option>
+													<option value="21" name="label" >21</option>
+													<option value="22" name="label" >22</option>
+													<option value="23" name="label" >23</option>
+													<option value="24" name="label" >24</option>
+													<option value="25" name="label" >25</option>
+													<option value="26" name="label" >26</option>
+													<option value="27" name="label" >27</option>
+													<option value="28" name="label" >28</option>
+													<option value="29" name="label" >29</option>
+													<option value="30" name="label" >30</option>
+													<option value="31" name="label" >31</option>
+													<option value="32" name="label" >32</option>
+													<option value="33" name="label" >33</option>
+													<option value="34" name="label" >34</option>
+													<option value="35" name="label" >35</option>
+													<option value="36" name="label" >36</option>
+													<option value="37" name="label" >37</option>
+													<option value="38" name="label" >38</option>
+													<option value="39" name="label" >39</option>
+													<option value="40" name="label" >40</option>
+											</select>
+									</div>
+									
+									<p id="fillMessage3" name="label" caption="Please enter values for mandatory fields" style="color:red;">&nbsp;&nbsp;&nbsp;Please enter values for mandatory fields.</p>
+									
+									<div class="col-sm-4 col-xs-6">
+										 <br><a name="label" caption="Search" class="green-btn-style" id="searchButton" style="background-color:#006400;"> Search </a>
+									</div>
+								</div>
+							</form>
+			
+							<br>				
+							<div class="userlist-part splitPage" id="viewFocus">
+								<div class="row">
+									<div class="col-sm-12" id="matches">
+									</div>
+								</div>
+								
+								<div class="row" id="profileList"></div>
+								
+								<div class="row" id="pageOrder">
+									<div class="col-sm-12">
+										<div class="list-pagination">
+										
+											<ul id="pageLists"></ul>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+  
+<!-- Search END -->
+
+<!-- Profile Details Start -->
+
+  <div style="min-height: 657px;" class="ui-page ui-body-a" tabindex="1" data-url="six" data-role="page" id="profileDetails" data-theme="a">
+    <div style="background-color:white;min-height: 180px;">
+			  <img src="images/goat_tml-1-e1484570611608.png" class="im1" style="width:190px; height:150px; margin-left:50px; float:left; margin-top:20px; padding-bottom:5px;"/>
+			  <a href="http://aadhangam.com"><img src="images/capture17.png" style="padding-left:15%; padding-top:50px; vertical-align:top;" class="im2"/></a>
+			  <img src="images/cropped-hand-shake-final-1.png" style="width:190px; height:150px; margin-right:50px; float:right; margin-top:20px;"class="im3"/>
+	</div>
+   <header class="col-sm-12 top-head">
+              <div class="col-md-2 col-sm-3 col-xs-4 logo">
+			  </div>    
+	</header>
+	
+        <div class="col-sm-12 title-bar" style="background-color:black;height:70px; padding-top:20px;">
+          <div class="col-sm-6 col-xs-5 title" name="label" caption="PROFILE DETAILS" style="color:white; font-size:18px;"><i class="fa fa-users"; aria-hidden="true"></i>PROFILE DETAILS</div>
+		  <div class="col-sm-6 col-xs-7 breadcrumb text-right"> <a rel="external" name="label" caption="Logout" style="color:white; font-size:14px;" class="logout">LOGOUT</a></div>
+		  <div class="col-sm-6 col-xs-7 breadcrumb-left" ><a style="color:white; font-size:14px;" name="label" caption="MAIN MENU" class="matrimonial" href="#home">MAIN MENU</a></div>
+	   </div>
+	   
+		<div class="col-sm-12 content-sec">
+		<div style="width:100%" id="pronav" title="Uravupaalam Notification"  >
+		<div class="costomer-tab-section" >
+		<div class="tab-content" style="background-color:white;">
+		<div id="protab" class="tab-pane fade in active">
+				
+			<div class="userlist-detail">
+			
+				<div class="row">
+					<div class="col-sm-12">
+						<h2 class="list-head color">Profile Details </h3>
+					</div>
+				</div>
+				
+				<div class="row" id="displayDetails"></div> 
+			</div>
+
+			<br/>
+			<div class="btm-contact">
+				<a class="contact-btn" id="closeButton2">Close</a>					
+			</div>
+			
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+	</div>
+ 
+<!-- Profile Details END -->
+
+<!-- Like Profile Details Start -->
+
+  <div style="min-height: 657px;" class="ui-page ui-body-a" tabindex="1" data-url="six" data-role="page" id="likeProfiles" data-theme="a">
+    <div style="background-color:white;min-height: 180px;">
+			  <img src="images/goat_tml-1-e1484570611608.png" class="im1" style="width:190px; height:150px; margin-left:50px; float:left; margin-top:20px; padding-bottom:5px;"/>
+			  <a href="http://aadhangam.com"><img src="images/capture17.png" style="padding-left:15%; padding-top:50px; vertical-align:top;" class="im2"/></a>
+			  <img src="images/cropped-hand-shake-final-1.png" style="width:190px; height:150px; margin-right:50px; float:right; margin-top:20px;"class="im3"/>
+	</div>
+   <header class="col-sm-12 top-head">
+              <div class="col-md-2 col-sm-3 col-xs-4 logo">
+			  </div>    
+	</header>
+	
+        <div class="col-sm-12 title-bar" style="background-color:black;height:70px; padding-top:20px;">
+          <div class="col-sm-6 col-xs-5 title" name="label" caption="PROFILE DETAILS" style="color:white; font-size:18px;"><i class="fa fa-users"; aria-hidden="true"></i>MATRIMONIAL FAVOURITES</div>
+		  <div class="col-sm-6 col-xs-7 breadcrumb text-right"> <a rel="external" name="label" caption="Logout" style="color:white; font-size:14px;" class="logout">LOGOUT</a></div>
+		  <div class="col-sm-6 col-xs-7 breadcrumb-left" ><a style="color:white; font-size:14px;" name="label" caption="MAIN MENU" class="matrimonial" href="#home">MAIN MENU</a></div>
+	   </div>
+	   
+		<div class="col-sm-12 content-sec">
+		<div style="width:100%" id="pronav" title="Uravupaalam Notification"  >
+		<div class="costomer-tab-section" >
+		<div class="tab-content" style="background-color:white;">
+		<div id="protab" class="tab-pane fade in active">
+				
+			<div class="userlist-part">
+			
+				<div class="row">
+					<div class="col-sm-12">
+						<h2 class="list-head color">Liked Profiles </h3>
+					</div>
+				</div>
+				
+				<div class="row" id="likeProfileList"></div> 
+			</div>
+			
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+	</div>
+ 
+<!-- Like Profile Details END -->
+
+<!-- View/Edit -->
+
+  <div style="min-height: 657px;"  class="ui-page ui-body-a" tabindex="1" data-url="four" data-role="page" id="viewEdit" data-theme="a">
+      <div style="background-color:white;min-height: 180px;">
+	<!-- Header Banner -->
+			  <img src="images/goat_tml-1-e1484570611608.png" class="im1" style="width:190px; height:150px; margin-left:50px; float:left; margin-top:20px; padding-bottom:5px;"/>
+			  <a href="http://aadhangam.com"><img src="images/capture17.png" style="padding-left:15%; padding-top:50px; vertical-align:top;" class="im2"/></a>
+			  <img src="images/cropped-hand-shake-final-1.png" style="width:190px; height:150px; margin-right:50px; float:right; margin-top:20px;"class="im3"/>
+	</div>
+   <header class="col-sm-12 top-head">
+              <div class="col-md-2 col-sm-3 col-xs-4 logo">
+			  <!-- Removed previous logo -->
+			  </div>    
+	</header>
+	
+        <div class="col-sm-12 title-bar" style="background-color:black;height:70px; padding-top:20px;">
+          <div class="col-sm-6 col-xs-5 title" name="label" caption="View/Edit Matrimonial Registration" style="color:white; font-size:18px;"><i class="fa fa-users"; aria-hidden="true"></i>MANAGE PROFILES</div>
+		  <div class="col-sm-6 col-xs-7 breadcrumb text-right"> <a rel="external" name="label" caption="Logout" style="color:white; font-size:14px;" class="logout">LOGOUT</a></div>
+		  <div class="col-sm-6 col-xs-7 breadcrumb-left" ><a style="color:white; font-size:14px;" name="label" caption="MAIN MENU" class="matrimonial" href="#home">MAIN MENU</a></div>
+	   </div>
+		
+		<div class="col-sm-12 content-sec" style="background-color:#ffffcc;">
+			<div style="width:100%" id="vienav" title="Uravupaalam Notification"  >
+				<div class="costomer-tab-section" >
+					<div class="tab-content" style="background-color:#ffffcc;">
+						<div id="vietab" class="tab-pane fade in active">
+						
+						<br>
+						<div class="vieDivc" id="vieDiv" >
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="col-sm-12">
+										<div class="head-table"> My Profiles </div>
+										<div class="custom-table" ><div class="tbl"></div></div>
+									</div>
+								</div>
+							</div>
+						
+						<div style="width:100%;display:none;" class="removeUserDialog" title="Prodcast Notification" >
+							<div class="costomer-tab-section">
+								<div class="tab-content-mini">
+									<form>
+										<div class="row">
+										<div class="col-sm-12">
+										<center> <label >Are you sure you want to delete Matrimonial Registration</label></center>
+									<center><div class="tbl-row">
+											<div class="tbl-col">
+											<a id="removeUserYes"  class="green-btn-style">Yes</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="removeUserNo"  class="green-btn-style">No</a>
+											</div></center>
+									
+										</div>
+										</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  
+<!-- View/Edit END -->
+  
+</div>
+
+<!-- jQuery 2.1.4 -->
+<script src="js/jQuery-2.1.4.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js" ></script>
+<script src="js/jquery.paging.min.js"></script>
+
+<!-- Bootstrap 3.3.5 -->
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<script src="js/index_gt3.js"></script>
+<script src="js/index_language_gt3.js"></script>
+<script src="js/index_matrimony3.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+    //stick in the fixed 100% height behind the navbar but don't wrap it
+    $('#slide-nav.navbar-inverse, #slide-nav2.navbar-inverse, #slide-nav3.navbar-inverse, #slide-nav4.navbar-inverse').after($('<div class="inverse" id="navbar-height-col"></div>'));
+
+    $('#slide-nav.navbar-default, #slide-nav2.navbar-default, #slide-nav3.navbar-default, #slide-nav4.navbar-default').after($('<div id="navbar-height-col"></div>'));
+
+    // Enter your ids or classes
+    var toggler = '.navbar-toggle';
+    var pagewrapper = '#page-content';
+    var navigationwrapper = '.navbar-header';
+    var menuwidth = '100%'; // the menu inside the slide menu itself
+    var slidewidth = '80%';
+    var menuneg = '-100%';
+    var slideneg = '-80%';
+
+
+    $("#slide-nav, #slide-nav2, #slide-nav3, #slide-nav4").on("click", toggler, function (e) {
+
+        var selected = $(this).hasClass('slide-active');
+
+        $('#slidemenu, #slidemenu2, #slidemenu3, #slidemenu4').stop().animate({
+            left: selected ? menuneg : '0px'
+        });
+
+        $('#navbar-height-col, #navbar-height-col2, #navbar-height-col3, #navbar-height-col4').stop().animate({
+            left: selected ? slideneg : '0px'
+        });
+        $(pagewrapper).stop().animate({
+            left: selected ? '0px' : slidewidth
+        });
+
+        $(navigationwrapper).stop().animate({
+            left: selected ? '0px' : slidewidth
+        });
+
+
+        $(this).toggleClass('slide-active', !selected);
+        $('#slidemenu, #slidemenu2, #slidemenu3, #slidemenu4').toggleClass('slide-active');
+
+
+        $('#page-content, .navbar, body, .navbar-header').toggleClass('slide-active');
+
+
+    });
+
+
+    var selected = '#slidemenu, #page-content, body, .navbar, .navbar-header';
+
+
+    $(window).on("resize", function () {
+
+        if ($(window).width() > 800 && $('.navbar-toggle').is(':hidden')) {
+            $(selected).removeClass('slide-active');
+        }
+
+
+    });
+  
+     
+});	
+
+</script>
+
+</body>
+</html>

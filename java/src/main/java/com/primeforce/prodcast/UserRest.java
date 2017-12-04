@@ -152,12 +152,12 @@ public class UserRest {
             System.out.println(code);
             int regist;
             if (registerId == null) {
-                List userData = dbManager.fetchMobileNumber1(country, mobilePhone);
-                List userEmail = dbManager.fetchEmailAddress(email);
+                //List userData = dbManager.fetchMobileNumber1(country, mobilePhone);
+                //List userEmail = dbManager.fetchEmailAddress(email);
                 List userAadhar =dbManager.fetchAadharNumber(aadhar);
 
 
-                if (mobilePhone.equals(""))
+               /* if (mobilePhone.equals(""))
                 {
                     dbManager.registerUser(name.toUpperCase(), gender, dob, fatherName.toUpperCase(), motherName.toUpperCase(), race.toUpperCase(), education.toUpperCase(),
                             occupation.toUpperCase(), doorname.toUpperCase(), street.toUpperCase(), town.toUpperCase(), district.toUpperCase(), taluk.toUpperCase(), state.toUpperCase(),
@@ -194,25 +194,42 @@ public class UserRest {
                         dto.setErrorMessage("The Aadhar Number Already Exists");
                         return dto;
                     }
+                }*/
+
+                if (userAadhar.size() > 0)
+                {
+                    dto.setError(true);
+                    dto.setErrorMessage("The Aadhar Number Already Exists");
+                    return dto;
                 }
+
+
 
                 regist = dbManager.registerUser(name.toUpperCase(), gender, dob, fatherName.toUpperCase(), motherName.toUpperCase(), race.toUpperCase(), education.toUpperCase(),
                         occupation.toUpperCase(), doorname.toUpperCase(), street.toUpperCase(), town.toUpperCase(), district.toUpperCase(), taluk.toUpperCase(), state.toUpperCase(),
                         country.toUpperCase(), mobilePhone.toUpperCase(), email.toLowerCase(), aadhar.toUpperCase(), bloodGroup.toUpperCase(), pinCode.toUpperCase(), kulatheivam.toUpperCase(), kulatheivamLocation.toUpperCase(), code);
 
-                String phoneNumber = dbManager.fetchCustomerCountryId1(country) + mobilePhone;
+                dto.setSuccessMessage(""+code);
 
-                String subject = "Thank you for registering with URAVUPPAALAM. Your pin number for http://www.uravuppaalam.com is :" + code + "." +
-                        " You can use the PIN # to login and update your details anytime \n";
-                Amazon.sendSMS(subject, phoneNumber);
+                try {
+                    String phoneNumber = dbManager.fetchCustomerCountryId1(country) + mobilePhone;
 
-                Amazon.sendEmail(email, "WELCOME TO URAVUPPAALAM", subject);
+                    String subject = "Thank you for registering with URAVUPPAALAM. Your pin number for http://www.uravuppaalam.com is :" + code + "." +
+                            " You can use the PIN # to login and update your details anytime \n";
+                    Amazon.sendSMS(subject, phoneNumber);
+
+                    Amazon.sendEmail(email, "WELCOME TO URAVUPPAALAM", subject);
+                }
+                catch(Exception er ){
+                    System.out.println("Error with SNS ");
+                }
             }
             else {
 
                 regist = dbManager.updateCustomer1(name.toUpperCase(), gender, dob, fatherName.toUpperCase(), motherName.toUpperCase(), race.toUpperCase(), education.toUpperCase(),
                         occupation.toUpperCase(), doorname.toUpperCase(), street.toUpperCase(), town.toUpperCase(), district.toUpperCase(), taluk.toUpperCase(), state.toUpperCase(),
                         country.toUpperCase(), mobilePhone.toUpperCase(), email.toLowerCase(), aadhar.toUpperCase(), bloodGroup.toUpperCase(), pinCode.toUpperCase(), kulatheivam.toUpperCase(), kulatheivamLocation.toUpperCase(), Long.parseLong(registerId));
+                dto.setSuccessMessage("Successfully Updated");
             }
 
             if (regist == 0) {
@@ -221,7 +238,7 @@ public class UserRest {
                 dto.setResult(regist);
             }
 
-            dto.setSuccessMessage("Successfully Registered");
+
 
 
         } catch (Exception er)
@@ -587,52 +604,13 @@ public class UserRest {
             System.out.println(code);
             int regist;
             int censusRegister;
-                List userData = dbManager.fetchMobileNumber1(country, mobilePhone);
-                List userEmail = dbManager.fetchEmailAddress(email);
                 List userAadhar =dbManager.fetchAadharNumber(aadhar);
 
-
-            if (mobilePhone.equals(""))
+            if (userAadhar.size() > 0)
             {
-                dbManager.registerUser(name.toUpperCase(), gender, dob, fatherName.toUpperCase(), motherName.toUpperCase(), race.toUpperCase(), education.toUpperCase(),
-                        occupation.toUpperCase(), doorname.toUpperCase(), street.toUpperCase(), town.toUpperCase(), district.toUpperCase(), taluk.toUpperCase(), state.toUpperCase(),
-                        country.toUpperCase(), mobilePhone.toUpperCase(), email.toLowerCase(), aadhar.toUpperCase(), bloodGroup.toUpperCase(), pinCode.toUpperCase(), kulatheivam.toUpperCase(), kulatheivamLocation.toUpperCase(), code);
-
-            }
-            else {
-                if (userData.size() > 0)
-
-                {
-                    dto.setError(true);
-                    dto.setErrorMessage("The Mobile number Already Exists");
-                    return dto;
-                }
-            }
-
-                if (userEmail.size() > 0) {
-                    dto.setError(true);
-                    dto.setErrorMessage("The EmailId Already Exists");
-                    return dto;
-
-                }
-
-            if (aadhar.equals(""))
-            {
-                dbManager.registerUser(name.toUpperCase(), gender, dob, fatherName.toUpperCase(), motherName.toUpperCase(), race.toUpperCase(), education.toUpperCase(),
-                        occupation.toUpperCase(), doorname.toUpperCase(), street.toUpperCase(), town.toUpperCase(), district.toUpperCase(), taluk.toUpperCase(), state.toUpperCase(),
-                        country.toUpperCase(), mobilePhone.toUpperCase(), email.toLowerCase(), aadhar.toUpperCase(), bloodGroup.toUpperCase(), pinCode.toUpperCase(), kulatheivam.toUpperCase(), kulatheivamLocation.toUpperCase(), code);
-
-            }
-
-            else {
-
-
-                if (userAadhar.size() > 0)
-                {
-                    dto.setError(true);
-                    dto.setErrorMessage("The Aadhar Number Already Exists");
-                    return dto;
-                }
+                dto.setError(true);
+                dto.setErrorMessage("The Aadhar Number Already Exists");
+                return dto;
             }
 
 
@@ -640,6 +618,7 @@ public class UserRest {
                         occupation.toUpperCase(), doorname.toUpperCase(), street.toUpperCase(), town.toUpperCase(), district.toUpperCase(), taluk.toUpperCase(), state.toUpperCase(),
                         country.toUpperCase(), mobilePhone.toUpperCase(), email.toLowerCase(), aadhar.toUpperCase(), bloodGroup.toUpperCase(), pinCode.toUpperCase(), kulatheivam.toUpperCase(), kulatheivamLocation.toUpperCase(), code);
 
+            try {
                 String phoneNumber = dbManager.fetchCustomerCountryId1(country) + mobilePhone;
 
                 String subject = "Thank you for registering with URAVUPPAALAM. Your pin number for http://www.uravuppaalam.com is :" + code + "." +
@@ -648,12 +627,17 @@ public class UserRest {
 
                 Amazon.sendEmail(email, "WELCOME TO URAVUPPAALAM", subject);
 
+            }
+            catch(Exception er ){
+                System.out.println( er );
+            }
+
                 censusRegister = dbManager.searchFamilyPerson(Long.parseLong(censusId),mobilePhone,relationShip,parentNumber);
 
 
                 dto.setResult(regist);
                 dto.setResult(censusRegister);
-                dto.setSuccessMessage("Successfully Registered");
+                dto.setSuccessMessage("Successfully Registered. PIN "+code);
 
 
         } catch (Exception er)

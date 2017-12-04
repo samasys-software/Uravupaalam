@@ -1,0 +1,271 @@
+/*New Code Search and Profile Design 4.8.17*/
+
+@font-face {
+	font-family: 'Conv_Gotham Book';
+	src: url('../fonts/Gotham Book.eot');
+	src: local('?'), url('../fonts/Gotham Book.woff') format('woff'), url('../fonts/Gotham Book.ttf') format('truetype'), url('../fonts/Gotham Book.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+    font-family: 'gotham_boldregular';
+    src: url('../fonts/gotham_bold_regular-webfont.woff2') format('woff2'),
+         url('../fonts/gotham_bold_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body { background : url(../images/collage.jpg); font-family: 'Conv_Gotham Book'; }
+img {max-width:100%;}
+a:hover, a:focus { outline:none; text-decoration:none; }
+.site-inner { width:80%; margin-left:10%; margin-top:32px; margin-bottom:32px; }
+
+
+/* NEW PAGE CONTENT CSS */
+.search-part {
+    padding: 50px 30px;
+    background: #ebebeb;
+}
+.search-part label { color:#000; font-size: 16px;  font-family: 'Conv_Gotham Book';  }
+.search-part select, .search-part input {
+    width: 100%;
+    padding: 10px;
+    line-height: 14px;
+	font-family: 'Conv_Gotham Book'; 
+    font-size: 14px;
+	color: #b4b4b4;
+}
+.search-part input[type="Submit"] {
+    margin-top: 28px;
+    background: #007f42;
+    width: 200px;
+    max-width: 100%;
+    padding: 10px 50px;
+	transition: all 1s;
+    border: solid 1px #007f42;
+    color: #fff;
+    font-family: 'gotham_boldregular';
+}
+.search-part input[type="Submit"]:hover { 
+    background:  #029a51; 
+    border: solid 1px  #029a51; 
+}
+.userlist-part, .userlist-detail {
+	padding:30px;
+	background:#fff;
+}
+h2.list-head {
+    margin: 0 0 0;
+    font-size: 26px;
+    font-weight: bold;
+	font-family: 'Conv_Gotham Book'; 
+    border-bottom: solid 1px #007f42;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+.user-detail {
+    padding: 15px;
+}
+.user-pic {
+    float: left;
+    position: relative;
+    overflow: hidden;
+}
+/*.favorite { 
+    position: absolute;
+    z-index: 2;
+    left: 3px;
+    top: 3px; 	
+	cursor: pointer;
+    display: block;
+}
+.favorite::before {  
+    background: #fff;
+    text-align: center;
+    line-height: 18px; 
+	transition: all 1s;
+    color: #494949;
+	padding:3px;
+	content: "\f08a";
+	font-family: FontAwesome;
+}
+.favorite:hover::before, .favorite.active::before { 
+    color: #f86f6f;
+	content: "\f004";
+}*/
+.liked { 
+    position: absolute;
+    z-index: 2;
+    left: 3px;
+    top: 3px; 	
+	cursor: pointer;
+    display: block;
+}
+.liked::before {  
+    background: #fff;
+    text-align: center;
+    line-height: 18px; 
+	transition: all 1s;
+    color: #494949;
+	padding:3px;
+	content: "\f087";
+	font-family: FontAwesome;
+}
+.liked:hover::before, .liked.active::before { 
+    color: #0098f2;
+	content: "\f164";
+}
+.usr-info {
+    padding: 0 15px 0 150px;
+}
+.usr-info h3 {
+    margin-top: 0px;
+    margin-bottom: 8px;
+}
+.usr-info a {
+    color: #121212;
+    font-size: 18px;
+    font-family: 'gotham_boldregular';
+    border-bottom: solid 1px #b7b7b7;
+    padding-bottom: 5px;
+	display: block
+}
+.usr-info ul {
+    padding: 0;
+    margin: 0;
+    display: table;
+    width: 100%;
+}
+.usr-info ul li { 
+	display: table-row;
+	list-style:none;
+}
+.info-hed {
+    display: table-cell;
+    font-size: 14px; 
+    color: #121212;
+    font-family: 'gotham_boldregular';
+    padding: 3px;
+}
+.info-value {
+    display: table-cell;
+    font-size: 14px; 
+    color: #777;
+    font-family: 'Conv_Gotham Book';
+    padding: 3px;
+}
+.list-pagination {
+    text-align: center;
+    margin-top: 36px;
+} 
+.list-pagination ul {
+	padding:0px ;
+}
+.list-pagination li {
+    list-style: none;
+    display: inline-block;
+    padding: 3px;
+} 
+.list-pagination li i, .list-pagination li span {
+    width: 40px;
+    height: 40px;
+    display: block;
+    text-align: center;
+    line-height: 40px;
+    color: #121212;
+    font-weight: 600;
+    border: solid 1px #999;
+    border-radius: 50%;
+    font-size: 16px;
+	transition: all 1s;
+}
+
+.list-pagination li:hover i, .list-pagination li:hover span, .list-pagination li.active i, .list-pagination li.active span { 
+	background: #007f42;
+	color: #fff;
+	border: solid 1px #007f42;
+}
+
+.left-border {
+    border-left: solid 1px #007f42;
+}
+a.contact-btn {
+    float: right;
+    font-size: 14px;
+    padding: 10px 30px;
+    color: #fff;
+    background: #007f42;
+    font-family: 'gotham_boldregular';
+	transition: all 1s;
+}
+a.contact-btn:hover { background: #029a51;}
+h2.list-head span {
+    font-weight: 300;
+    color: #777;
+}
+.userlist-detail .usr-info {
+    padding-left: 260px;
+}
+.userlist-detail   .info-hed  { 
+	padding:8px;
+	width:50%;
+	vertical-align: top;
+}
+.userlist-detail .usr-info a.view-larg {
+    font-size: 14px;
+    display: inline-block;
+    float: right;
+	font-family: 'gotham_boldregular';
+}
+.btm-contact > a.contact-btn {
+    float: none;
+    width: auto;
+    display: inline-block;
+}
+.btm-contact {
+    border-top: solid 1px #b7b7b7;
+    padding-top: 20px;
+    margin-top: 30px;
+}
+
+
+@media only screen and ( max-width:992px ) {
+.user-pic {
+    width: 100px;
+    height: 100px;
+}
+.user-pic  img { width:100%; height:auto; }
+.usr-info {
+    padding: 0 15px 0 110px;
+}
+.info-value, .info-hed { font-size:13px; }
+.user-detail { padding:15px 0; }
+.list-pagination li i, .list-pagination li span { width: 35px;    height: 35px; line-height:35px; }
+.site-inner { width:100%; margin:0px; }
+ 
+ .userlist-detail .user-pic {
+    width: 180px;
+    height: 180px;
+}
+.userlist-detail .usr-info { padding-left:200px; }
+}
+
+@media only screen and ( max-width:767px ) {
+.left-border {
+    border-left: solid 1px #007f42;
+}
+}
+@media only screen and ( max-width:600px ) {
+.usr-info {
+    padding: 10px 0;
+}
+.user-pic {
+    float: none;
+	margin: auto;
+}
+.usr-info h3 { text-align: center; }
+
+.userlist-detail .usr-info { padding :10px 0; } 
+}
+

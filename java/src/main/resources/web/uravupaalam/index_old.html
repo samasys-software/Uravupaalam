@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>உறவுப்பாலம் - கணக்கெடுப்பு பதிவு</title> <!-- Edited title to have a better understanding -->
+<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+<link rel="icon" href="images/goat_favicon.png" type="image/png" sizes="16x16"><!-- Changed favicon to suit the rest of the site -->
+<!-- Tell the browser to be responsive to screen width -->
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<!-- Bootstrap 3.3.5 -->
+<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+<link href="http://code.jquery.com/ui/1.9.2/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/jquery.css">
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+ #saveDialog
+ {
+   background-color:white;
+   float:left;
+ }
+ 
+ #dialog
+ {
+   background-color:white;
+   float:left;
+   position: ['center'];
+ }
+ 
+</style>
+</head>
+<body style="overflow-y:scroll;" >
+<div class="page">
+
+<!-- Registration page -->
+	 
+	<div style="min-height: 657px;"  class="ui-page ui-body-c" tabindex="0" data-url="three" data-role="page" id="register" data-theme="a">
+	<div style="background-color:white;min-height: 180px;">
+	<!-- Header Banner -->
+			  <img src="images/goat_tml-1-e1484570611608.png" class="im1" style="width:190px; height:150px; margin-left:50px; float:left; margin-top:20px; padding-bottom:5px;"/>
+			  <a href="http://aadhangam.com"><img src="images/capture17.png" style="padding-left:15%; padding-top:50px; vertical-align:top;" class="im2"/></a>
+			  <img src="images/cropped-hand-shake-final-1.png" style="width:190px; height:150px; margin-right:50px; float:right; margin-top:20px;"class="im3"/>
+	</div>
+            <header class="col-sm-12 top-head">
+              <div class="col-md-2 col-sm-3 col-xs-4 logo">
+			  <!-- Removed previous logo -->
+			  </div>
+			  
+			  
+		    </header>
+	
+        <div class="col-sm-12 title-bar" style="background-color:black;height:70px; padding-top:20px;">
+		
+          <div class="col-sm-6 col-xs-5 title" name="label" caption="Registration" ><a href="http://ec2-52-91-5-22.compute-1.amazonaws.com:8080/uravupaalam/" ><i class="fa fa-users"; aria-hidden="true" ></i><span id="Reg" style="color: white"> REGISTRATION</span></a></div>
+		  <div class="col-sm-6 col-xs-7 breadcrumb text-right" ><a name="label" caption="Login" class="login" style="color:white; font-size:16px; text-transform:uppercase;"id="logoff" href="#login">LOGIN</a></div>
+		  <div class="col-sm-6 col-xs-7 breadcrumb-center" ><a class="report" style="color:white; font-size:16px;" name="label" caption="Report" id="reportId" href="#report">REPORT</a></div>
+		  
+	   </div>
+	   <br>
+		<br>
+	<div class="col-sm-12 content-sec" >
+		<div style="width:100;" id="RegisterNavigation" title="Uravupaalam Notification" >
+			<div class="costomer-tab-section" >
+               <div class="tab-content" style="background-color:#ffffcc;">
+                  <div id="RegisterTab" class="tab-pane fade in active" >
+						
+                        <form>
+						
+                            <div class="row" >
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Name">Name</span>
+										  <input type="text" id="name" >
+									</div>
+								   <div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Gender">Gender</span>
+											<select id="gender" style="text-indent:10px;background-color:white;">
+													<option value="">&nbsp;</option>
+													<option value="0" name="label" caption="Male">MALE</option>
+													<option value="1" name="label" caption="Female">FEMALE</option>
+											</select>
+								   </div>
+								   <div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Date of Birth">Date of Birth</span>
+										  <input type="text" data-role="date" id="dob" data-theme="a">
+								   </div>
+							</div>
+							
+							<div class="row">
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Father Name">Father's Name</span>
+										  <input type="text" id="fatherName" >
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Mother Name">Mother's Name</span>
+										  <input type="text" id="motherName" >
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Race">Race</span>
+										  <input type="text" id="race" >
+								    </div>
+							</div> 
+							
+							<div class="row">
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Education">Education</span>
+										  <select id="education" style="text-indent:10px;background-color:white;">
+													<option value="">&nbsp;</option>
+													<option value="N">NO SCHOOL</option>
+													<option value="F">UPTO 5TH STANDARD</option>
+													<option value="N">UPTO 9TH STANDARD</option>
+													<option value="T">10TH PASS</option>
+													<option value="TW">12TH PASS</option>
+													<option value="I">ITI</option>
+													<option value="DI">DIPLOMA</option>
+													<option value="DE">3 YEAR DEGREE</option>
+													<option value="B">B.E/B.TECH</option>
+													<option value="M">MBBS</option>
+													<option value="MBA">MBA</option>
+													<option value="PG">POST GRADUATE</option>
+											</select>
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Occupation">Occupation</span>
+										  <input type="text" id="occupation" >
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Country">Country</span>
+											<select id="country" style="text-indent:10px;background-color:white;">
+											</select>
+									</div>
+							</div> 
+							
+							<div class="row">
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="State">State</span>
+										  <select id="state" style="text-indent:10px;background-color:white;">
+											</select>
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="District">District</span>
+										  <select id="district" style="text-indent:10px;background-color:white;">
+													<option value="">&nbsp;</option>
+											</select>
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Taluk">Taluk</span>
+										  <select id="taluk" style="text-indent:10px;background-color:white;">
+													<option value="">&nbsp;</option>
+											</select>
+								    </div>
+							</div>
+							
+							<div class="row">
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Town">Town</span>
+										  <input type="text" id="town" >
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Street">Street</span>
+										  <input type="text" id="street" >
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Door Number">Door Number</span>
+										  <input type="text" id="doorNumber" >
+								    </div>
+							</div>
+							
+							<div class="row">
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Pin Code">Pin Code</span>
+										  <input type="numeric" id="pinCode" class="allownumericwithoutdecimal" maxlength="6">
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="KulaTheivam">KulaTheivam</span>
+										  <input type="text" id="kulatheivam">
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Kulatheivam Location">Kulatheivam Location</span>
+										  <input type="text" id="kulatheivamLocation">
+								    </div>
+							</div>
+							
+							<div class="row">
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Mobile Number">Mobile Number</span>
+										  <input type="numeric" id="mobileNumber" class="allownumericwithoutdecimal" maxlength="10">
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Email">Email</span>
+										  <input type="text" id="email" >
+								    </div>
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Aadhar">Aadhar</span>
+										  <input type="numeric" id="aadhar" class="allownumericwithoutdecimal" maxlength="12">
+								    </div>
+							</div>
+							
+							<div class="row">
+									<div class="col-sm-4 col-xs-6" >
+										  <span class="color" name="label" caption="Blood Group">Blood Group</span>
+											<select id="bloodGroup" style="text-indent:10px;background-color:white;">
+													<option value="">&nbsp;</option>
+													<option value="0">O+</option>
+													<option value="1">O-</option>
+													<option value="2">A+</option>
+													<option value="3">A-</option>
+													<option value="4">B+</option>
+													<option value="5">B-</option>
+													<option value="6">AB+</option>
+													<option value="7">AB-</option>
+											</select>
+									</div>
+							</div>
+							
+				     </form>		 
+						
+						<div class="row" >
+									  <p id="fillMessage" name="label" caption="Please enter values for mandatory fields" style="color:red;">&nbsp;&nbsp;&nbsp;Please enter values for mandatory fields.</p>
+						</div>
+							
+						<div class="row">
+							<div class="col-sm-4 col-xs-6">
+								<br> <a name="label" caption="Register" class="green-btn-style" id="registerButton" style="background-color:#006400;"> Register </a>
+							</div>
+							<div class="col-sm-4 col-xs-6">
+								<br> <a name="label" caption="Reset" class="green-btn-style" id="registerResetButton"  style="background-color:#006400;"> Reset </a>
+							</div>
+							<div class="col-sm-4 col-xs-6" >
+									<input type="button" id="radioEnglish" name="radio-language" value="en"/><label class="language" for="radioEnglish"> View in English </label>
+									<input type="button" id="radioTamil" name="radio-language" value="ta"/><label class="language" style="margin-left:10px;"for="radioTamil"> தமிழில் பார்வையிட </label>
+							</div>
+						</div> 
+              </div>
+            </div>
+		  </div>
+		</div>
+
+      </div>
+      </div>
+	
+<!-- Registration Page End-->
+  
+<!-- Login Page Start -->
+
+	<div class="ui-page ui-body-a" tabindex="" data-url="two" data-role="page" id="login">
+    <section class="login-sec">
+	<div style="background-color:white;min-height: 180px;">
+	<!-- Header Banner -->
+			  <img src="images/goat_tml-1-e1484570611608.png" class="im1" style="width:190px; height:150px; margin-left:50px; float:left; margin-top:20px; padding-bottom:5px;"/>
+			  <a href="http://aadhangam.com"><img src="images/capture17.png" style="padding-left:15%; padding-top:50px; vertical-align:top;" class="im2"/></a>
+			  <img src="images/cropped-hand-shake-final-1.png" style="width:190px; height:150px; margin-right:50px; float:right; margin-top:20px;"class="im3"/>
+      <!--<div class="admin-logo"><img src="images/goat_tml-1-e1484570611608.png" width="190px" height="150px" alt="" /></div>-->
+	  </div>
+      <div class="login-form-area" style="background-color:#ffffcc;">
+        <div class="login-form">
+          <div class="login-form-box">
+            <form>
+              <ul>
+			  <li>
+			  <div class="select-box" > <span class="input-icon"><i class="fa fa-globe" aria-hidden="true"></i></span>
+                    	<select id="LoginCountry" style="text-transform:uppercase;" >
+						</select>
+				  </div>  
+                </li>
+                <li>
+				
+                  <div class="input-box ui-content ui-body-a" > <span class="input-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    <input type="number" name="" value="" placeholder="Mobile Number" id="LoginUserId" maxlength="10" class="allownumericwithoutdecimal"/>
+                  </div>
+                  <div id="validationMessage" class="validation-msg">! Invalid Mobile Number or PIN</div>
+                </li>
+                <li>
+                  <div class="input-box" > <span class="input-icon"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
+                    <input type="number" name="" placeholder="PIN" id="LoginPassword" maxlength="4" class="allownumericwithoutdecimal"/>
+                  </div>
+                  <div id="validationMessage" class="validation-msg">! Invalid Mobile Number or PIN</div>
+                </li>
+				
+              </ul>
+              <div class="btn-sec">
+                <div class="col-half"> 
+                  <a  name="label" caption="Login" class="submit-btn" id="LoginButton">Log in</a>
+				  <div class="col-half reg-new"><a  name="label" caption="Register" href="#register">Register</a></div>
+                </div>
+					<div style="width:100%;display:none;" id="saveDialog" title="Uravupaalam Notification" >
+						<div class="costomer-tab-section">
+							<div class="tab-content-mini">
+								<form>
+									<div class="row">
+									<div class="col-sm-12">
+									<p id="notificationMessage" align="center" style="color:#abcd14"></p>
+									</div>
+									</div>
+									<div class="row">
+									<div class="col-sm-12" align="center"><a id="okMessage" name="label" caption="OK" class="green-btn-style">OK</a>
+									</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+                <div class="col-half-right "><a name="label" caption="Clear" class="submit-btn-right" id="clearButton">Clear</a></div>
+				<div class="col-half forgot-pswd"><a  name="label" caption="Forgot Pin" id="retrievePin">Forgot Pin?</a></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<!-- Login Page End -->
+  
+<!-- Report Start -->
+
+	<div style="min-height: 657px;"  class="ui-page ui-body-a" tabindex="1" data-url="four" data-role="page" id="report" data-theme="a">
+            <header class="col-sm-12 top-head">
+			
+		<div style="background-color:white;min-height: 180px;">
+	<!-- Header Banner -->
+			  <img src="images/goat_tml-1-e1484570611608.png" class="im1" style="width:190px; height:150px; margin-left:50px; float:left; margin-top:20px; padding-bottom:5px;"/>
+			  <a href="http://aadhangam.com"><img src="images/capture17.png" style="padding-left:15%; padding-top:50px; vertical-align:top;" class="im2"/></a>
+			  <img src="images/cropped-hand-shake-final-1.png" style="width:190px; height:150px; margin-right:50px; float:right; margin-top:20px;"class="im3"/>
+      <!--<div class="admin-logo"><img src="images/goat_tml-1-e1484570611608.png" width="190px" height="150px" alt="" /></div>-->
+	  </div>
+              <!--<div class="col-md-2 col-sm-3 col-xs-4 logo"><a><img src="images/logo.png" alt=""></a></div>-->
+		    </header>
+	
+        <div class="col-sm-12 title-bar" style="background-color:black;height:70px; padding-top:20px;">
+          <div class="col-sm-6 col-xs-5 title" name="label" caption="People Details" style="color:white; font-size:18px;"><i class="fa fa-users"; aria-hidden="true"></i>REPORT</div>
+		  <div class="col-sm-6 col-xs-7 breadcrumb text-right"> <a rel="external"  class="logout" style="color:white; font-size:14px;">LOGOUT</a></div>
+	   </div>
+	   <br>
+		<br>
+		<div class="col-sm-12 content-sec">
+			<div style="width:100%" id="peonav" title="Uravupaalam Notification" >
+				<div class="costomer-tab-section" >
+					<div class="tab-content" style="background-color:#ffffcc;">
+						<div id="usertab" class="tab-pane fade in active">
+						
+								<div class="row">
+									<div class="col-sm-4 col-xs-6" >
+									  <label class="lable-style">Search User</label>
+									  <input class="input-feild-style" type="text" id="selectUser" style="background-color:white;">		  
+									</div>
+									<div class="col-sm-4 col-xs-6" >
+										<br>
+										<br>
+										<br>
+										<a name="label" caption="Go" class="green-btn-style" id="go"> Go </a>
+									</div>									
+								</div>
+								
+								<div id="validMessage" style="color:red" >Enter a Name</div>
+
+										<br>
+										<a id="downloadUserList">Download All</a>
+										<br>
+										
+								<br>
+								<div class="userDivcl" id="userDiv" >
+									<div class="row">
+										<div class="col-sm-12">
+											<div class="head-table">User Details</div>
+											<div class="custom-table"><div class="tbl"></div></div>
+										</div>
+									</div>
+								</div>						
+								
+							<br/>
+							<a class="green-btn-style" id="closeButton" onclick="goBack()" > Back </a>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+ 
+<!-- Report END -->
+  
+</div>
+
+<!-- jQuery 2.1.4 -->
+<script src="js/jQuery-2.1.4.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js" ></script>
+
+<!-- Bootstrap 3.3.5 -->
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<script src="js/index.js"></script>
+<script src="js/index_language.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+    //stick in the fixed 100% height behind the navbar but don't wrap it
+    $('#slide-nav.navbar-inverse, #slide-nav2.navbar-inverse, #slide-nav3.navbar-inverse, #slide-nav4.navbar-inverse').after($('<div class="inverse" id="navbar-height-col"></div>'));
+
+    $('#slide-nav.navbar-default, #slide-nav2.navbar-default, #slide-nav3.navbar-default, #slide-nav4.navbar-default').after($('<div id="navbar-height-col"></div>'));
+
+    // Enter your ids or classes
+    var toggler = '.navbar-toggle';
+    var pagewrapper = '#page-content';
+    var navigationwrapper = '.navbar-header';
+    var menuwidth = '100%'; // the menu inside the slide menu itself
+    var slidewidth = '80%';
+    var menuneg = '-100%';
+    var slideneg = '-80%';
+
+
+    $("#slide-nav, #slide-nav2, #slide-nav3, #slide-nav4").on("click", toggler, function (e) {
+
+        var selected = $(this).hasClass('slide-active');
+
+        $('#slidemenu, #slidemenu2, #slidemenu3, #slidemenu4').stop().animate({
+            left: selected ? menuneg : '0px'
+        });
+
+        $('#navbar-height-col, #navbar-height-col2, #navbar-height-col3, #navbar-height-col4').stop().animate({
+            left: selected ? slideneg : '0px'
+        });
+        $(pagewrapper).stop().animate({
+            left: selected ? '0px' : slidewidth
+        });
+
+        $(navigationwrapper).stop().animate({
+            left: selected ? '0px' : slidewidth
+        });
+
+
+        $(this).toggleClass('slide-active', !selected);
+        $('#slidemenu, #slidemenu2, #slidemenu3, #slidemenu4').toggleClass('slide-active');
+
+
+        $('#page-content, .navbar, body, .navbar-header').toggleClass('slide-active');
+
+
+    });
+
+
+    var selected = '#slidemenu, #page-content, body, .navbar, .navbar-header';
+
+
+    $(window).on("resize", function () {
+
+        if ($(window).width() > 800 && $('.navbar-toggle').is(':hidden')) {
+            $(selected).removeClass('slide-active');
+        }
+
+
+    });
+  
+     
+});	
+
+</script>
+
+</body>
+</html>
