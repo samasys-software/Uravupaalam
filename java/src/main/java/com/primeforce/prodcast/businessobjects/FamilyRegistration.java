@@ -7,7 +7,7 @@ public class FamilyRegistration
 {
     private String name,fatherName,
             motherName,race,education,occupation,
-            doorNumber,street,town,district,taluk,state,country,mobilePhone,email,addar,bloodGroup,pinCode,kulatheivam,kulatheivamLocation,relationShip;
+            doorNumber,street,town,district,taluk,state,country,mobilePhone,email,addar,passportNo,bloodGroup,pinCode,kulatheivam,kulatheivamLocation,relationShip;
     private int gender;
 
     private Long uId;
@@ -247,5 +247,13 @@ public class FamilyRegistration
 
     public void setCreatedby(Long createdby) {
         this.createdby = createdby;
+    }
+
+    public String getPassportNo() {
+        return passportNo;
+    }
+
+    public void setPassportNo(String passportNo) {
+        this.passportNo = passportNo;
     }
 }

@@ -135,13 +135,22 @@ public class UserRest {
                                      @FormParam("mobilePhone") String mobilePhone,
                                      @FormParam("email") String email,
                                      @FormParam("aadhar") String aadhar,
+                                     @FormParam("passportNo") String passportNo,
                                      @FormParam("bloodGroup") String bloodGroup,
                                      @FormParam("pinCode") String pinCode,
                                      @FormParam("kulatheivam") String kulatheivam,
                                      @FormParam("kulatheivamLocation") String kulatheivamLocation,
-                                     @FormParam("registerId") String registerId)
+                                     @FormParam("registerId") long registerId,
+                                     @FormParam("censusId") long censusId,
+                                     @FormParam("relationShip")String relationShip,
+                                     @FormParam("parentNumber")String parentNumber)
 
-    {
+
+
+
+
+
+        {
         AdminDTO dto = new AdminDTO();
 
         try {
@@ -151,66 +160,25 @@ public class UserRest {
             int code = (1000 + random.nextInt(9000));
             System.out.println(code);
             int regist;
-            if (registerId == null) {
-                //List userData = dbManager.fetchMobileNumber1(country, mobilePhone);
-                //List userEmail = dbManager.fetchEmailAddress(email);
+
+            System.out.println("RegisterId:"+registerId);
+            if (registerId == 0 ) {
+                int censusRegister;
                 List userAadhar =dbManager.fetchAadharNumber(aadhar);
+                List userPassport =dbManager.fetchPassportNumber(passportNo);
 
-
-               /* if (mobilePhone.equals(""))
-                {
-                    dbManager.registerUser(name.toUpperCase(), gender, dob, fatherName.toUpperCase(), motherName.toUpperCase(), race.toUpperCase(), education.toUpperCase(),
-                            occupation.toUpperCase(), doorname.toUpperCase(), street.toUpperCase(), town.toUpperCase(), district.toUpperCase(), taluk.toUpperCase(), state.toUpperCase(),
-                            country.toUpperCase(), mobilePhone.toUpperCase(), email.toLowerCase(), aadhar.toUpperCase(), bloodGroup.toUpperCase(), pinCode.toUpperCase(), kulatheivam.toUpperCase(), kulatheivamLocation.toUpperCase(), code);
-
-                }
-               else {
-                    if (userData.size() > 0)
-
-                    {
-                        dto.setError(true);
-                        dto.setErrorMessage("The Mobile number Already Exists");
-                        return dto;
-                    }
-                }
-                if (userEmail.size() > 0) {
-                    dto.setError(true);
-                    dto.setErrorMessage("The EmailId Already Exists");
-                    return dto;
-
-                }
-                if (aadhar.equals(""))
-                {
-                    dbManager.registerUser(name.toUpperCase(), gender, dob, fatherName.toUpperCase(), motherName.toUpperCase(), race.toUpperCase(), education.toUpperCase(),
-                            occupation.toUpperCase(), doorname.toUpperCase(), street.toUpperCase(), town.toUpperCase(), district.toUpperCase(), taluk.toUpperCase(), state.toUpperCase(),
-                            country.toUpperCase(), mobilePhone.toUpperCase(), email.toLowerCase(), aadhar.toUpperCase(), bloodGroup.toUpperCase(), pinCode.toUpperCase(), kulatheivam.toUpperCase(), kulatheivamLocation.toUpperCase(), code);
-
-                }
-                else
-                    {
-                    if (userAadhar.size() > 0)
-                    {
-                        dto.setError(true);
-                        dto.setErrorMessage("The Aadhar Number Already Exists");
-                        return dto;
-                    }
-                }*/
-
-                if (userAadhar.size() > 0)
+                if (userAadhar.size() > 0 || userPassport.size() > 0)
                 {
                     dto.setError(true);
                     dto.setErrorMessage("The Aadhar Number Already Exists");
                     return dto;
                 }
 
-
-
-                regist = dbManager.registerUser(name.toUpperCase(), gender, dob, fatherName.toUpperCase(), motherName.toUpperCase(), race.toUpperCase(), education.toUpperCase(),
+                System.out.println("REgistered Going");
+                regist = dbManager.saveUserRegisteration(name.toUpperCase(), gender, dob, fatherName.toUpperCase(), motherName.toUpperCase(), race.toUpperCase(), education.toUpperCase(),
                         occupation.toUpperCase(), doorname.toUpperCase(), street.toUpperCase(), town.toUpperCase(), district.toUpperCase(), taluk.toUpperCase(), state.toUpperCase(),
-                        country.toUpperCase(), mobilePhone.toUpperCase(), email.toLowerCase(), aadhar.toUpperCase(), bloodGroup.toUpperCase(), pinCode.toUpperCase(), kulatheivam.toUpperCase(), kulatheivamLocation.toUpperCase(), code);
-
-                dto.setSuccessMessage(""+code);
-
+                        country.toUpperCase(), mobilePhone.toUpperCase(), email.toLowerCase(), aadhar.toUpperCase(),passportNo, bloodGroup.toUpperCase(), pinCode.toUpperCase(), kulatheivam.toUpperCase(), kulatheivamLocation.toUpperCase(), code);
+                long existId=dbManager.getUId(aadhar.toUpperCase(),passportNo.toUpperCase());
                 try {
                     String phoneNumber = dbManager.fetchCustomerCountryId1(country) + mobilePhone;
 
@@ -223,12 +191,22 @@ public class UserRest {
                 catch(Exception er ){
                     System.out.println("Error with SNS ");
                 }
+                if(censusId >0) {
+                    System.out.println("census before Succees");
+                    censusRegister = dbManager.registerFamilyPerson(censusId, existId, relationShip);
+                    System.out.println("census Succees");
+                }
+
+                dto.setResult(regist);
+
+                dto.setSuccessMessage("Successfully Registered. PIN "+code);
+
             }
             else {
-
-                regist = dbManager.updateCustomer1(name.toUpperCase(), gender, dob, fatherName.toUpperCase(), motherName.toUpperCase(), race.toUpperCase(), education.toUpperCase(),
+                System.out.println("Updated Going");
+                regist = dbManager.updateUserRegistration(name.toUpperCase(), gender, dob, fatherName.toUpperCase(), motherName.toUpperCase(), race.toUpperCase(), education.toUpperCase(),
                         occupation.toUpperCase(), doorname.toUpperCase(), street.toUpperCase(), town.toUpperCase(), district.toUpperCase(), taluk.toUpperCase(), state.toUpperCase(),
-                        country.toUpperCase(), mobilePhone.toUpperCase(), email.toLowerCase(), aadhar.toUpperCase(), bloodGroup.toUpperCase(), pinCode.toUpperCase(), kulatheivam.toUpperCase(), kulatheivamLocation.toUpperCase(), Long.parseLong(registerId));
+                        country.toUpperCase(), mobilePhone.toUpperCase(), email.toLowerCase(), aadhar.toUpperCase(),passportNo, bloodGroup.toUpperCase(), pinCode.toUpperCase(), kulatheivam.toUpperCase(), kulatheivamLocation.toUpperCase(), registerId);
                 dto.setSuccessMessage("Successfully Updated");
             }
 
@@ -237,11 +215,8 @@ public class UserRest {
             } else {
                 dto.setResult(regist);
             }
-
-
-
-
-        } catch (Exception er)
+        }
+        catch (Exception er)
 
         {
             er.printStackTrace();
@@ -255,14 +230,14 @@ public class UserRest {
     @POST
     @Path("login")
     @Produces(MediaType.APPLICATION_JSON)
-    public CustomerLoginDTO authenticate(@FormParam("mobilePhone") String mobilePhone, @FormParam("country") String country, @FormParam("pin") int pin,@FormParam("aadhar") String aadhar,@FormParam("email") String email) {
+    public CustomerLoginDTO authenticate(@FormParam("country") String country,  @FormParam("loginOption") String loginOption,@FormParam("aadhar") String aadhar,@FormParam("passport") String passport,@FormParam("pin") int pin) {
 
         CustomerLoginDTO dto = new CustomerLoginDTO();
 
 
         try {
 
-            UserRegistration confirmation = dbManager.loginCustomer1(country,mobilePhone,aadhar,email,pin);
+            UserRegistration confirmation=dbManager.loginUser(country,loginOption,aadhar,passport,pin);
             System.out.println("UId=" + confirmation.getuId());
             long censusId = confirmation.getuId();
             dto.setResult(confirmation);
@@ -345,7 +320,7 @@ public class UserRest {
 
             if (!name.equals("")) {
 
-                registration = dbManager.getAllRegistors1(name.toUpperCase());
+                registration = dbManager.getAllRegistorsDetails(name.toUpperCase());
 
                 dto.setResult(registration);
 
@@ -390,7 +365,7 @@ public class UserRest {
         return dto;
     }
 
-    @GET
+   /* @GET
     @Path("getDetails")
     @Produces(MediaType.APPLICATION_JSON)
 
@@ -413,6 +388,7 @@ public class UserRest {
         }
         return dto;
     }
+    */
 
     @GET
     @Path("getUserDetails")
@@ -512,12 +488,12 @@ public class UserRest {
     @GET
     @Path("searchDetails")
     @Produces(MediaType.APPLICATION_JSON)
-    public RegistrationDTO searchCensusPerson(@QueryParam("mobilePhone") String mobilePhone,@QueryParam("aadhar") String aadhar,@QueryParam("email") String email) {
+    public RegistrationDTO searchCensusPerson(@QueryParam("mobilePhone") String mobilePhone,@QueryParam("passportNo") String passportNo,@QueryParam("aadhar") String aadhar,@QueryParam("email") String email) {
         RegistrationDTO dto = new RegistrationDTO();
         List<UserRegistration> censusRegistrations = null;
         try {
 
-             censusRegistrations = dbManager.searchDetail(mobilePhone,aadhar,email);
+             censusRegistrations = dbManager.searchDetail(mobilePhone,aadhar,email,passportNo);
 
 
             dto.setResult(censusRegistrations);
@@ -531,13 +507,13 @@ public class UserRest {
     @POST
     @Path("searchFamilys")
     @Produces(MediaType.APPLICATION_JSON)
-    public AdminDTO searchFamilyPerson(@FormParam("censusId")String censusId,@FormParam("existId")String existId,@FormParam("relationShip")String relationShip,@FormParam("mobilePhone")String mobilePhone){
+    public AdminDTO searchFamilyPerson(@FormParam("censusId")String censusId,@FormParam("existId")String existId,@FormParam("relationShip")String relationShip){
         AdminDTO dto=new AdminDTO();
 
         try {
 
             int censusRegistrations;
-            censusRegistrations = dbManager.searchRelation(Long.parseLong(censusId),Long.parseLong(existId),relationShip,mobilePhone);
+            censusRegistrations = dbManager.registerFamilyPerson(Long.parseLong(censusId),Long.parseLong(existId),relationShip);
 
 
             dto.setResult(censusRegistrations);
@@ -566,7 +542,9 @@ public class UserRest {
         }
         return dto;
     }
-    @POST
+
+
+   /* @POST
     @Path("censusRegistration")
     @Produces(MediaType.APPLICATION_JSON)
     public AdminDTO censusRegistration(@FormParam("name") String name,
@@ -587,6 +565,7 @@ public class UserRest {
                                      @FormParam("childNumber") String mobilePhone,
                                      @FormParam("email") String email,
                                      @FormParam("aadhar") String aadhar,
+                                     @FormParam("passportNo") String passportNo,
                                      @FormParam("bloodGroup") String bloodGroup,
                                      @FormParam("pinCode") String pinCode,
                                      @FormParam("kulatheivam") String kulatheivam,
@@ -613,10 +592,11 @@ public class UserRest {
                 return dto;
             }
 
+//
 
-                regist = dbManager.registerUser(name.toUpperCase(), gender, dob, fatherName.toUpperCase(), motherName.toUpperCase(), race.toUpperCase(), education.toUpperCase(),
-                        occupation.toUpperCase(), doorname.toUpperCase(), street.toUpperCase(), town.toUpperCase(), district.toUpperCase(), taluk.toUpperCase(), state.toUpperCase(),
-                        country.toUpperCase(), mobilePhone.toUpperCase(), email.toLowerCase(), aadhar.toUpperCase(), bloodGroup.toUpperCase(), pinCode.toUpperCase(), kulatheivam.toUpperCase(), kulatheivamLocation.toUpperCase(), code);
+            regist = dbManager.registerUser(name.toUpperCase(), gender, dob, fatherName.toUpperCase(), motherName.toUpperCase(), race.toUpperCase(), education.toUpperCase(),
+                    occupation.toUpperCase(), doorname.toUpperCase(), street.toUpperCase(), town.toUpperCase(), district.toUpperCase(), taluk.toUpperCase(), state.toUpperCase(),
+                    country.toUpperCase(), mobilePhone.toUpperCase(), email.toLowerCase(), aadhar.toUpperCase(),passportNo, bloodGroup.toUpperCase(), pinCode.toUpperCase(), kulatheivam.toUpperCase(), kulatheivamLocation.toUpperCase(), code);
 
             try {
                 String phoneNumber = dbManager.fetchCustomerCountryId1(country) + mobilePhone;
@@ -632,12 +612,6 @@ public class UserRest {
                 System.out.println( er );
             }
 
-                censusRegister = dbManager.searchFamilyPerson(Long.parseLong(censusId),mobilePhone,relationShip,parentNumber);
-
-
-                dto.setResult(regist);
-                dto.setResult(censusRegister);
-                dto.setSuccessMessage("Successfully Registered. PIN "+code);
 
 
         } catch (Exception er)
@@ -650,6 +624,6 @@ public class UserRest {
         }
         return dto;
     }
-
+*/
 
 }
