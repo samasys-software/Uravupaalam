@@ -33,6 +33,7 @@ public UserDetailMapper()
         register.setMobilePhone(rs.getString("mobile_no"));
         register.setEmail(rs.getString("email"));
         register.setAddar(rs.getString("aadhar_no"));
+        register.setPassportNo(rs.getString("passport_no"));
         register.setBloodGroup(rs.getString("blood_group"));
         register.setPinCode(rs.getString("pinCode"));
         register.setuId(rs.getLong("uid"));

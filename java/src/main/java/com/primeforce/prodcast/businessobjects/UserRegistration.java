@@ -8,7 +8,7 @@ import java.util.Date;
 public class UserRegistration {
     private String name,fatherName,
             motherName,race,education,occupation,
-            doorNumber,street,town,district,taluk,state,country,mobilePhone,email,addar,bloodGroup,pinCode,role,kulatheivam,kulatheivamLocation;
+            doorNumber,street,town,district,taluk,state,country,mobilePhone,email,addar,passportNo,bloodGroup,pinCode,role,kulatheivam,kulatheivamLocation;
     private int gender;
     private Long userId;
     private Long uId;
@@ -233,7 +233,13 @@ public class UserRegistration {
         this.active = active;
     }
 
+    public String getPassportNo() {
+        return passportNo;
+    }
 
+    public void setPassportNo(String passportNo) {
+        this.passportNo = passportNo;
+    }
 }
 
 

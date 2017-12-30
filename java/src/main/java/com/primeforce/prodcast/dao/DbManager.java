@@ -47,9 +47,25 @@ public class DbManager {
     }
 
     public List<UserRegistration> fetchAadharNumber(String aadhar) {
+        try {
 
-        Object[] args = new Object[]{aadhar};
-        return template1.query(DataBaseSql.FETCH_AADHAR_NUMBER, args, new UserDetailMapper());
+            Object[] args = new Object[]{aadhar};
+            return template1.query(DataBaseSql.FETCH_AADHAR_NUMBER, args, new UserDetailMapper());
+        }
+        catch (Exception e){
+            return null;
+        }
+
+    }
+    public List<UserRegistration> fetchPassportNumber(String passport) {
+        try {
+
+            Object[] args = new Object[]{passport};
+            return template1.query(DataBaseSql.FETCH_PASSPORT_NUMBER, args, new UserDetailMapper());
+        }
+        catch (Exception e){
+            return null;
+        }
 
     }
 
@@ -83,15 +99,24 @@ public class DbManager {
 
     }
 
-    public int registerUser(String name, int gender, String dob, String fatherName, String motherName, String race, String education, String occupation, String doorname, String street, String town, String district, String taluk, String state, String country, String mobilePhone, String email, String aadhar, String bloodGroup, String pinCode, String kulatheivam, String kulatheivamLocation,int code) throws ParseException {
+    public int saveUserRegisteration(String name, int gender, String dob, String fatherName, String motherName, String race, String education, String occupation, String doorname, String street, String town, String district, String taluk, String state, String country, String mobilePhone, String email, String aadhar, String passportNo, String bloodGroup, String pinCode, String kulatheivam, String kulatheivamLocation,int code) throws ParseException {
         DateFormat df = new SimpleDateFormat(DATE_FORMAT);
 
 
         Object[] args = new Object[]{name, gender, new Date(df.parse(dob).getTime()), fatherName,
                 motherName, race, education, occupation, doorname, street,
-                town, district, taluk, state, country, mobilePhone, email, aadhar, bloodGroup, pinCode, kulatheivam, kulatheivamLocation,code};
-        return template1.update(DataBaseSql.CUSTOMER_REGISTRATION, args);
+                town, district, taluk, state, country, mobilePhone, email, aadhar,passportNo, bloodGroup, pinCode, kulatheivam, kulatheivamLocation,code};
+        return template1.update(DataBaseSql.SAVE_USER_REGISTRATION, args);
 
+
+    }
+
+    public int updateUserRegistration(String name, int gender, String dob, String fatherName, String motherName, String race, String education, String occupation, String doorname, String street, String town, String district, String taluk, String state, String country, String mobilePhone, String email, String aadhar, String passportNo, String bloodGroup, String pinCode, String kulatheivam, String kulatheivamLocation, long registerId) throws ParseException {
+        DateFormat df = new SimpleDateFormat(DATE_FORMAT);
+        Object[] args = new Object[]{name, gender, new Date(df.parse(dob).getTime()), fatherName,
+                motherName, race, education, occupation, doorname, street,
+                town, district, taluk, state, country, mobilePhone, email, aadhar, passportNo, bloodGroup, pinCode, kulatheivam, kulatheivamLocation, registerId};
+        return template1.update(DataBaseSql.UPDATE_USER_REGISTRATION, args);
 
     }
 
@@ -100,32 +125,30 @@ public class DbManager {
     }
 
 
-    public UserRegistration loginCustomer1( String country, String mobilePhone,String aadhar,String email,int pin) {
-        return template1.queryForObject(DataBaseSql.GET_LOGIN, new Object[]{country, mobilePhone,aadhar,email,pin}, new UserRegistrationMapper());
-    }
+    public UserRegistration loginUser( String country, String loginOption,String aadhar,String passport,int pin) {
 
-
-    public int updateCustomer1(String name, int gender, String dob, String fatherName, String motherName, String race, String education, String occupation, String doorname, String street, String town, String district, String taluk, String state, String country, String mobilePhone, String email, String aadhar, String bloodGroup, String pinCode, String kulatheivam, String kulatheivamLocation, long registerId) throws ParseException {
-        DateFormat df = new SimpleDateFormat(DATE_FORMAT);
-        Object[] args = new Object[]{name, gender, new Date(df.parse(dob).getTime()), fatherName,
-                motherName, race, education, occupation, doorname, street,
-                town, district, taluk, state, country, mobilePhone, email, aadhar, bloodGroup, pinCode, kulatheivam, kulatheivamLocation, registerId};
-        return template1.update(DataBaseSql.UPDATE_SQL, args);
+        if(loginOption.equals("aadhar"))
+            return template1.queryForObject(DataBaseSql.GET_LOGIN_BY_AADHAR, new Object[]{country,aadhar,pin}, new UserRegistrationMapper());
+        else
+            return template1.queryForObject(DataBaseSql.GET_LOGIN_BY_PASSPORT, new Object[]{country,passport,pin}, new UserRegistrationMapper());
 
     }
-    public int searchRelation(Long censusId,Long existId,String relationShip,String mobilePhone)
+
+
+
+    public int searchRelation(Long censusId,Long existId,String relationShip)
 
     {
-        Object[] args=new Object[]{censusId,existId,relationShip,mobilePhone};
+        Object[] args=new Object[]{censusId,existId,relationShip,censusId};
         return template1.update(DataBaseSql.CENSUS_RELATION_REGISTRATION,args);
     }
-    public int searchFamilyPerson(Long censusId,String phoneNumber,String relationShip,String mobilePhone)
+    public int registerFamilyPerson(long censusId,long existId,String relationShip)
 
     {
-        Object[] args=new Object[]{censusId,phoneNumber,relationShip,mobilePhone};
-        return template1.update(DataBaseSql.CENSUS_PERSON_REGISTRATION,args);
+        Object[] args=new Object[]{censusId,existId,relationShip,censusId};
+        return template1.update(DataBaseSql.CENSUS_RELATION_REGISTRATION,args);
     }
-    public List<FamilyRegistration> viewFamilyPerson(Long censusId) {
+    public List<FamilyRegistration> viewFamilyPerson(long censusId) {
 
         Object[] args = new Object[]{censusId};
 
@@ -151,7 +174,7 @@ public class DbManager {
             return 1;
         }
     }
-    public List<UserRegistration> getAllRegistors1(String name)
+    public List<UserRegistration> getAllRegistorsDetails(String name)
 
     {
         return template1.query(DataBaseSql.GET_ALL_REGISTORS + "'%" + name.trim() + "%'", (Object[]) null, new UserDetailMapper());
@@ -162,8 +185,9 @@ public class DbManager {
         return template1.query(DataBaseSql.USER_DETAILS, (Object[]) null, new UserDetailMapper());
 
     }
-    public List<UserRegistration> searchDetail(String mobilePhone,String aadhar,String email) {
-        Object [] args=new Object[]{mobilePhone,aadhar,email};
+    public List<UserRegistration> searchDetail(String mobilePhone,String aadhar,String email,String passportNo) {
+
+        Object [] args=new Object[]{mobilePhone,aadhar,email,passportNo};
         return template1.query(DataBaseSql.SEARCH_CENSUS_PERSON,args, new UserDetailMapper());
 
     }
@@ -263,6 +287,12 @@ public class DbManager {
         Object[] args=new Object[]{censusId};
         return template1.query(DataBaseSql.MATRIMONIAL_PROFILE, args, new MatrimonialProfileMapper());
 
+    }
+    public long getUId(String aadhar,String passport)
+
+    {
+        Object[] args=new Object[]{aadhar,passport};
+        return template1.queryForObject(DataBaseSql.GET_UID, args,long.class);
     }
     public int deleteProfile(Long matrimonialId) {
 

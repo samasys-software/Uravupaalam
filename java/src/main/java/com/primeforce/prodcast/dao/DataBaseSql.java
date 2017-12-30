@@ -10,27 +10,44 @@ public class DataBaseSql
     public final static String FETCH_EMAIL_ADDRESS="select * from census_person where email=?";
 
     public final static String FETCH_AADHAR_NUMBER ="select * from census_person where aadhar_no=?";
+    public final static String FETCH_PASSPORT_NUMBER ="select * from census_person where passport_no=?";
 
     //  public final static String FETCH_ALL_MOBILE_NUMBER = "select * from census_person cns left join user_role urole on cns.uid=urole.user_id where cns.country_id=? and cns.mobile_no=?";
-    public final static String SEARCH_CENSUS_PERSON="select * from census_person where mobile_no=? or aadhar_no=? or email=?;";
+    public final static String SEARCH_CENSUS_PERSON="select * from census_person where mobile_no=? or aadhar_no=? or email=? or passport_no=?;";
 
-    public final static String CUSTOMER_REGISTRATION = "insert into census_person (name,gender,date_of_birth,fathers_name,`mothers name`,race,education,occupation,door_number,street,town,district,taluk,state_id,country_id,mobile_no,email,aadhar_no,blood_group,pinCode,kulatheivam,kulatheivamLocation,pin_no,active_flag,created_ts,updated_ts) values(" +
-            "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,'1',NOW(),NOW())";
+    public final static String  SAVE_USER_REGISTRATION = "insert into census_person (name,gender,date_of_birth,fathers_name,`mothers name`," +
+            "race,education,occupation,door_number,street," +
+            "town,district,taluk,state_id,country_id," +
+            "mobile_no,email,aadhar_no,passport_no,blood_group," +
+            "pinCode,kulatheivam,kulatheivamLocation,pin_no,active_flag," +
+            "created_ts,updated_ts) values(" +
+            "?,?,?,?,?," +
+            "?,?,?,?,?," +
+            "?,?,?,?,?," +
+            "?,?,?,?,?," +
+            "?,?,?,?,'1'," +
+            "NOW(),NOW())";
+    public final static String UPDATE_USER_REGISTRATION="update census_person set name=?,gender=?,date_of_birth=?,fathers_name=?,`mothers name`=?," +
+            "race=?,education=?,occupation=?,door_number=?,street=?," +
+            "town=?,district=?,taluk=?,state_id=?,country_id=?," +
+            "mobile_no=?,email=?,aadhar_no=?,passport_no=?,blood_group=?," +
+            "pinCode=?,kulatheivam=?,kulatheivamLocation=?,updated_ts=NOW()  where uid=?";
+
+
 
     public final static String FETCH_NEW_REGISTRATION_COUNTRY = "select isd_code from country where country_id=?";
 
-    public final static String GET_LOGIN ="select * from census_person cns left join user_role urole on cns.uid=urole.user_id where cns.country_id=? and cns.mobile_no=? or cns.aadhar_no=? or cns.email=? and cns.pin_no=? ";
+    public final static String GET_LOGIN_BY_AADHAR ="select * from census_person cns left join user_role urole on cns.uid=urole.user_id where cns.country_id=? and cns.aadhar_no=? and cns.pin_no=? ";
+    public final static String GET_LOGIN_BY_PASSPORT ="select * from census_person cns left join user_role urole on cns.uid=urole.user_id where cns.country_id=? and cns.passport_no=? and cns.pin_no=? ";
 
     //public final static String GET_LOGIN_U = "SELECT census_person.*, user_role.role FROM census_person LEFT JOIN user_role ON census_person.uid=user_role.uid ORDER BY census_person.name" ;
 
-    public final static String UPDATE_SQL="update census_person set name=?,gender=?,date_of_birth=?,fathers_name=?,`mothers name`=?,race=?,education=?,occupation=?,door_number=?,street=?,town=?,district=?,taluk=?,state_id=?,country_id=?,mobile_no=?,email=?,aadhar_no=?,blood_group=?,pinCode=?,kulatheivam=?,kulatheivamLocation=?,updated_ts=NOW()  where uid=?";
 
-
-    public final static String CENSUS_PERSON_REGISTRATION="insert into census_relationship(parent_id,child_id,relationship,created_by,created_ts,updated_ts)values(?,(select uid from census_person where mobile_no=?),?,(select uid from census_person where mobile_no=?),NOW(),NOW())";
+    public final static String CENSUS_PERSON_REGISTRATION="insert into census_relationship(parent_id,child_id,relationship,created_by,created_ts,updated_ts)values(?,?,?,?,NOW(),NOW())";
 
     public final static String CENSUS_PERSON_VIEWS = "select * from census_person b left join census_relationship a on a.child_id=b.uid where a.created_by=?";
 
-    public final static String CENSUS_RELATION_REGISTRATION="insert into census_relationship(parent_id,child_id,relationship,created_by,created_ts,updated_ts)values(?,?,?,(select uid from census_person where mobile_no=?),NOW(),NOW())";
+    public final static String CENSUS_RELATION_REGISTRATION="insert into census_relationship(parent_id,child_id,relationship,created_by,created_ts,updated_ts)values(?,?,?,?,NOW(),NOW())";
 
     public final static String STATE_SQL = "select * from country_state where country_id=? ";
 
@@ -75,5 +92,10 @@ public class DataBaseSql
     public final static String FETCH_PROFILE="select * from favorite_profile where matrimonial_id=? and census_id=? and active='1'";
 
     public final static String DELETE_PROFILE="update favorite_profile set active='0' where matrimonial_id=?";
+
+    public final static String GET_UID="select uid from census_person where aadhar_no=? or passport_no=?";
+
+
+
 
 }
